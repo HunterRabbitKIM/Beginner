@@ -23,6 +23,9 @@ public class PlayerMove : MonoBehaviour
     Vector3 moveDirection; //이동 방향 벡터 변수
 
     public Animator animator; // 애니메이터
+    
+
+    public float interactDiastance = 5f; //오브젝트와 상호작용 가능한 거리
 
     // Start is called before the first frame update
     void Start()
@@ -40,7 +43,7 @@ public class PlayerMove : MonoBehaviour
 
         verticalRotation -= Input.GetAxis("Mouse Y") * mouseSensitivity;
         verticalRotation = Mathf.Clamp(verticalRotation, -90, 90); // 상하 회전 각도 제한
-        playerCamera.localRotation = Quaternion.Euler(verticalRotation, 0, 0); // 카메라 회전 설정
+        playerCamera.localRotation = Quaternion.Euler(verticalRotation, horizontalRotation, 0); // 카메라 회전 설정
 
         //이동
         moveSpeed = Input.GetKey(KeyCode.LeftShift) ? runSpeed : walkSpeed;
@@ -57,5 +60,18 @@ public class PlayerMove : MonoBehaviour
 
         // 이동 적용
         characterController.Move(moveDirection * Time.deltaTime); // 캐릭터 컨트롤러를 통해 이동 적용
+
+        Ray ray = new Ray(transform.position, transform.forward); //정면 오브젝트 상호작용
+        RaycastHit hit;
+        //문 열고 닫기 Key:E
+        if (Physics.Raycast(ray, out hit, interactDiastance))
+            {
+                if (hit.collider.CompareTag("Door")){
+                    if (Input.GetKeyDown(KeyCode.E))
+                {
+                    hit.collider.GetComponent<DoorMove>().ChangeDoorState();
+                }  
+                }
+            }    
     }
 }
