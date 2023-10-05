@@ -4,13 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - RoomLight
+  - SamplesInfoPanel
   - Plastic
   - Concrete
-<<<<<<< HEAD
-  - Door
-=======
-  - isGround
->>>>>>> 58207e2426e9646803d985494c7faab340971e8c
+  - door
   layers:
   - Default
   - TransparentFX
@@ -18,7 +16,7 @@ TagManager:
   - 
   - Water
   - UI
-  - isGrounded
+  - 
   - 
   - 
   - 
