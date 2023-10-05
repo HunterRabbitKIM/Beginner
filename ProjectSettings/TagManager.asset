@@ -6,7 +6,11 @@ TagManager:
   tags:
   - Plastic
   - Concrete
+<<<<<<< HEAD
   - Door
+=======
+  - isGround
+>>>>>>> 58207e2426e9646803d985494c7faab340971e8c
   layers:
   - Default
   - TransparentFX
@@ -14,7 +18,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - isGrounded
   - 
   - 
   - 
