@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public float mouseSensitivity = 2.0f;
     public float verticalRotation = 0;
     public float horizontalRotation;
+    public float interactDiastance = 5f; 
 
     public Transform playerCamera;
 
@@ -35,6 +36,7 @@ public class Player : MonoBehaviour
     {
         Turn();
         Move();
+        DoorOpen();
     }
 
     void Turn()
@@ -67,5 +69,21 @@ public class Player : MonoBehaviour
         }
         moveDirection.y += gravity * Time.deltaTime;
         characterController.Move(moveDirection * Time.deltaTime);
+    }
+    void DoorOpen()
+    {
+        Ray ray = new Ray(transform.position, transform.forward); //???? ??????? ??????
+        RaycastHit hit;
+        //?? ???? ??? Key:E
+        if (Physics.Raycast(ray, out hit, interactDiastance))
+        {
+            if (hit.collider.CompareTag("Door"))
+            {
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    hit.collider.GetComponent<DoorMove>().ChangeDoorState();
+                }
+            }
+        }
     }
 }
