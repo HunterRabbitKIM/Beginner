@@ -4,66 +4,67 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    public float walkSpeed = 5.0f; // °È±â ¼Óµµ
-    public float runSpeed = 10.0f; // ´Þ¸®±â ¼Óµµ
+    public float walkSpeed = 5.0f; // ??? ???
+    public float runSpeed = 10.0f; // ????? ???
 
-    public float mouseSensitivity = 2.0f; //¸¶¿ì½º °¨µµ
-    public float verticalRotation = 0; //¼¼·Î È¸Àü °¢µµ
-    public float horizontalRotation; //ÀüÈÄ È¸Àü °¢µµ
+    public float mouseSensitivity = 2.0f; //???Â²J ????
+    public float verticalRotation = 0; //???? ??? ????
+    public float horizontalRotation; //???? ??? ????
 
-    public Transform playerCamera; //ÇÃ·¹ÀÌ¾î Ä«¸Þ¶ó
+    public Transform playerCamera; //?Â¡Ã€???? ????
 
-    float moveSpeed; // ÀÌµ¿¿¡ °üÇÑ º¯¼ö(´Þ¸®±â ¶Ç´Â °È±â)
+    float moveSpeed; // ????? ???? ????(????? ??? ???)
     float hAxis;
     float vAxis;
-    float moveMagnitude; //ÀÌµ¿ º¤ÅÍ Å©±â º¯¼ö
+    float moveMagnitude; //??? ???? ??? ????
 
-    private CharacterController characterController; // Ä³¸¯ÅÍ ÄÁÆ®·Ñ·¯
+    private CharacterController characterController; // Â©Â¦???? ??????
 
-    Vector3 moveDirection; //ÀÌµ¿ ¹æÇâ º¤ÅÍ º¯¼ö
+    Vector3 moveDirection; //??? ???? ???? ????
 
-    public Animator animator; // ¾Ö´Ï¸ÞÀÌÅÍ
+    public Animator animator; // ????????
     
 
-    public float interactDiastance = 5f; //¿ÀºêÁ§Æ®¿Í »óÈ£ÀÛ¿ë °¡´ÉÇÑ °Å¸®
+    public float interactDiastance = 5f; //????????? ?????? ?????? ???
 
+    
     // Start is called before the first frame update
     void Start()
-    {
+    { 
         animator = GetComponentInChildren<Animator>();
-        characterController = GetComponent<CharacterController>(); // Ä³¸¯ÅÍ ÄÁÆ®·Ñ·¯ ÄÄÆ÷³ÍÆ® °¡Á®¿À±â
+        characterController = GetComponent<CharacterController>(); // Â©Â¦???? ?????? ??????? ????????
     }
 
     // Update is called once per frame
     void Update()
     {
-        //È¸Àü
+        //???
         horizontalRotation = Input.GetAxis("Mouse X") * mouseSensitivity;
-        transform.Rotate(0, horizontalRotation, 0); //ÇÃ·¹ÀÌ¾î¸¦ ¼öÆòÀ¸·Î È¸Àü
+        transform.Rotate(0, horizontalRotation, 0); //?Â¡Ã€???? ???????? ???
 
         verticalRotation -= Input.GetAxis("Mouse Y") * mouseSensitivity;
-        verticalRotation = Mathf.Clamp(verticalRotation, -90, 90); // »óÇÏ È¸Àü °¢µµ Á¦ÇÑ
-        playerCamera.localRotation = Quaternion.Euler(verticalRotation, horizontalRotation, 0); // Ä«¸Þ¶ó È¸Àü ¼³Á¤
+        verticalRotation = Mathf.Clamp(verticalRotation, -90, 90); // ???? ??? ???? ????
+        playerCamera.localRotation = Quaternion.Euler(verticalRotation, horizontalRotation, 0); // ???? ??? ????
 
-        //ÀÌµ¿
+        //???
         moveSpeed = Input.GetKey(KeyCode.LeftShift) ? runSpeed : walkSpeed;
-        hAxis = Input.GetAxisRaw("Horizontal") * moveSpeed; //ÁÂ¿ì ÀÌµ¿ ¹æÇâ°ú ¼Óµµ
-        vAxis = Input.GetAxisRaw("Vertical") * moveSpeed;  // ÀüÈÄ ÀÌµ¿ ¹æÇâ°ú ¼Óµµ
+        hAxis = Input.GetAxisRaw("Horizontal") * moveSpeed; //?Â¢Â¯? ??? ????? ???
+        vAxis = Input.GetAxisRaw("Vertical") * moveSpeed;  // ???? ??? ????? ???
         
         moveDirection = new Vector3(hAxis, 0, vAxis);
-        moveDirection = transform.TransformDirection(moveDirection); //ÀÌµ¿ ¹æÇâÀ» ·ÎÄÃ ÁÂÇ¥°è·Î º¯È¯
+        moveDirection = transform.TransformDirection(moveDirection); //??? ?????? ???? ?????? ???
 
-        //¾Ö´Ï¸ÞÀÌÅÍ ¸Å°³ º¯¼ö ¼³Á¤
+        //???????? ??? ???? ????
         moveMagnitude = moveDirection.magnitude;
         animator.SetBool("isWalk", moveMagnitude > 0);
         animator.SetBool("isRun", moveMagnitude > 0 && Input.GetKey(KeyCode.LeftShift));
 
-        // ÀÌµ¿ Àû¿ë
-        characterController.Move(moveDirection * Time.deltaTime); // Ä³¸¯ÅÍ ÄÁÆ®·Ñ·¯¸¦ ÅëÇØ ÀÌµ¿ Àû¿ë
+        // ??? ????
+        characterController.Move(moveDirection * Time.deltaTime); // Â©Â¦???? ???????? ???? ??? ????
 
-        Ray ray = new Ray(transform.position, transform.forward); //Á¤¸é ¿ÀºêÁ§Æ® »óÈ£ÀÛ¿ë
+        Ray ray = new Ray(transform.position, transform.forward); //???? ??????? ??????
         RaycastHit hit;
-        //¹® ¿­°í ´Ý±â Key:E
+        //?? ???? ??? Key:E
         if (Physics.Raycast(ray, out hit, interactDiastance))
             {
                 if (hit.collider.CompareTag("Door")){
