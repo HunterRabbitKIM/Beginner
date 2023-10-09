@@ -5,9 +5,9 @@ using UnityEngine;
 public class DoorMove : MonoBehaviour
 {
     public bool open = false;
-    public float doorOpenAngle = 90f; //¹® ¿­¸± ¶§ °¢µµ
-    public float doorCloseAngle = 0f; //¹® ´ÝÈú ¶§ °¢µµ
-    public float smoot = 2f; //¹®ÀÌ ¿­°í ´ÝÀ»¶§ ºÎµå·¯¿î Á¤µµ
+    public float doorOpenAngle = 90f; //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    public float doorCloseAngle = 0f; //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    public float smoot = 2f; //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµå·¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
     void Start()
     {
@@ -30,6 +30,19 @@ public class DoorMove : MonoBehaviour
         {
             Quaternion targetRotation2 = Quaternion.Euler(0, doorCloseAngle, 0);
             transform.localRotation = Quaternion.Slerp(transform.localRotation, targetRotation2, smoot * Time.deltaTime);
+        }
+    }
+    
+    private void OnTriggerEnter(Collider other)
+    {
+        IHandle item = other.GetComponent<IHandle>();
+        if (item!=null&&!item.myName().Equals(""))
+        {
+            if (item.myName().Equals("key"))
+            {
+                ChangeDoorState();
+                item.destroy();
+            }
         }
     }
 }
