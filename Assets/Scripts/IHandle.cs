@@ -2,8 +2,9 @@ using UnityEngine;
 
 public interface IHandle
 {
-    void Use()
+    string myName()
     {
-        
+        return "";
     }
+    void destroy(){}
 }
