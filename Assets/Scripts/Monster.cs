@@ -86,7 +86,7 @@ public class Monster : MonoBehaviour
 
         nav.speed = walkSpeed;
 
-        destination.Set(Random.Range(-10f, 10f), 0f, Random.Range(-10f, 10f));
+        destination.Set(Random.Range(-13f, 13f), 0f, Random.Range(-13f, 13f));
 
         RandomAction();
     }
