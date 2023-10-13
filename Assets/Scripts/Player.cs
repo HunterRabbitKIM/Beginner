@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
 
     public float jumpPower = 8.0f;
     public float gravity = -20f;
+    private bool isRun = false;
 
     private CharacterController characterController;
 
@@ -34,6 +35,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        TryRun();
         Turn();
         Move();
         DoorOpen();
@@ -53,16 +55,15 @@ public class Player : MonoBehaviour
     void Move()
     {
 
-        if(characterController.isGrounded)
+        if (characterController.isGrounded)
         {
-            moveSpeed = Input.GetKey(KeyCode.LeftShift) ? runSpeed : walkSpeed;
-            hAxis = Input.GetAxis("Horizontal") * moveSpeed;
-            vAxis = Input.GetAxis("Vertical") * moveSpeed;
+            hAxis = Input.GetAxis("Horizontal") * walkSpeed;
+            vAxis = Input.GetAxis("Vertical") * walkSpeed;
 
             moveDirection = new Vector3(hAxis, 0, vAxis);
             moveDirection = transform.TransformDirection(moveDirection);
 
-            if(Input.GetButtonDown("Jump"))
+            if (Input.GetButtonDown("Jump"))
             {
                 moveDirection.y = jumpPower;
             }
@@ -70,7 +71,37 @@ public class Player : MonoBehaviour
         moveDirection.y += gravity * Time.deltaTime;
         characterController.Move(moveDirection * Time.deltaTime);
     }
-    void DoorOpen()
+
+    public bool GetRun()
+    {
+        return isRun;
+    }
+
+    private void TryRun()
+    {
+        if (characterController.isGrounded)
+        {
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                isRun = true;
+
+                hAxis = Input.GetAxis("Horizontal") * runSpeed;
+                vAxis = Input.GetAxis("Vertical") * runSpeed;
+
+                moveDirection = new Vector3(hAxis, 0, vAxis);
+                moveDirection = transform.TransformDirection(moveDirection);
+
+                moveDirection.y += gravity * Time.deltaTime;
+                characterController.Move(moveDirection * Time.deltaTime);
+            }
+            if (Input.GetKeyUp(KeyCode.LeftShift))
+            {
+                isRun = false;
+                runSpeed = walkSpeed;
+            }
+        }
+    }
+        void DoorOpen()
     {
         Ray ray = new Ray(transform.position, transform.forward); //???? ??????? ??????
         RaycastHit hit;
