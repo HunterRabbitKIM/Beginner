@@ -105,7 +105,6 @@ public class Monster : MonoBehaviour
         Debug.Log("대기");
     }
 
-
     private void RandomAction()
     {
         int _random = Random.Range(0, 2); // 대기, 걷기
