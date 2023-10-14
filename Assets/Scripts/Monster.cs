@@ -14,7 +14,8 @@ public class Monster : MonoBehaviour
     private bool isAction;  // 행동 중인지 아닌지 판별
     private bool isWalking; // 걷는지, 안 걷는지 판별
     private bool isChasing;
-    
+    private bool isWaiting = true;
+
 
     [SerializeField] private float walkTime;  // 걷기 시간
     [SerializeField] private float walkSpeed;  // 걷기 속력
@@ -88,11 +89,13 @@ public class Monster : MonoBehaviour
 
         nav.ResetPath();
 
-        isWalking = false;
+        isWalking = !isWaiting;  // 대기 이후에는 무조건 걷기
+
+        isWaiting = !isWaiting;  // 걷기 이후에는 무조건 대기
 
         nav.speed = walkSpeed;
 
-        destination.Set(Random.Range(-10f, 10f), 0f, Random.Range(-10f, 10f));
+        destination.Set(Random.Range(-12f, 12f), 0f, Random.Range(-12.25f, 12.25f));
 
         RandomAction();
         
@@ -117,11 +120,9 @@ public class Monster : MonoBehaviour
 
     private void RandomAction()
     {
-        int _random = Random.Range(0, 2); // 대기, 걷기
-
-        if (_random == 0)
+        if (isWaiting)
             Wait();
-        else if (_random == 1)
+        else
             TryWalk();
     }
 
