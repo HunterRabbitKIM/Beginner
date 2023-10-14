@@ -9,6 +9,7 @@ TagManager:
   - Plastic
   - Concrete
   - Door
+  - Lamp
   layers:
   - Default
   - TransparentFX
