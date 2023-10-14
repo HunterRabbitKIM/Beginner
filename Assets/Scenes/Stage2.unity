@@ -3509,6 +3509,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Priest (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7232730286969761241, guid: 6924745a509f7b746bc74f3d4548b1aa, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 3ed7bc1689ebd4e47a63a70ac3ad3277, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

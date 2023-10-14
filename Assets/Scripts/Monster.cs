@@ -9,10 +9,12 @@ public class Monster : MonoBehaviour
     private Transform player;
     protected ViewAngle theViewAngle;
     protected Vector3 destination;  // 목적지
+    private Animator Animator;
 
     private bool isAction;  // 행동 중인지 아닌지 판별
     private bool isWalking; // 걷는지, 안 걷는지 판별
     private bool isChasing;
+    
 
     [SerializeField] private float walkTime;  // 걷기 시간
     [SerializeField] private float walkSpeed;  // 걷기 속력
@@ -23,6 +25,8 @@ public class Monster : MonoBehaviour
     [SerializeField] protected float chaseDelayTime; // 추격 딜레이
 
     private float currentTime;
+    private static readonly int HashIswalking = Animator.StringToHash("IsWalking");
+    private static readonly int HashIsChasing = Animator.StringToHash("IsChasing");
 
     void Start()
     {
@@ -31,6 +35,7 @@ public class Monster : MonoBehaviour
         currentTime = waitTime;
         nav = GetComponent<NavMeshAgent>();
         theViewAngle = GetComponent<ViewAngle>();
+        Animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -58,6 +63,7 @@ public class Monster : MonoBehaviour
 
         isChasing = false;
         nav.ResetPath();
+        Animator.SetBool(HashIsChasing,isChasing);
     } 
 
     private void Move()
@@ -89,6 +95,9 @@ public class Monster : MonoBehaviour
         destination.Set(Random.Range(-10f, 10f), 0f, Random.Range(-10f, 10f));
 
         RandomAction();
+        
+        Animator.SetBool(HashIswalking,isWalking);
+        Animator.SetBool(HashIswalking,isAction);
     }
 
     protected void TryWalk()  // 걷기
@@ -97,6 +106,7 @@ public class Monster : MonoBehaviour
         isWalking = true;
         nav.speed = walkSpeed;
         Debug.Log("걷기");
+        Animator.SetBool(HashIswalking,isWalking);
     }
 
     private void Wait()  // 대기
@@ -123,5 +133,6 @@ public class Monster : MonoBehaviour
         Debug.Log("추격중!");
         nav.speed = chaseSpeed;
         nav.SetDestination(destination);
+        Animator.SetBool(HashIsChasing,isChasing);
     }
 }
