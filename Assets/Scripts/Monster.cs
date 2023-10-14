@@ -9,10 +9,13 @@ public class Monster : MonoBehaviour
     private Transform player;
     protected ViewAngle theViewAngle;
     protected Vector3 destination;  // 목적지
+    private Animator Animator;
 
     private bool isAction;  // 행동 중인지 아닌지 판별
     private bool isWalking; // 걷는지, 안 걷는지 판별
     private bool isChasing;
+    private bool isWaiting = true;
+
 
     [SerializeField] private float walkTime;  // 걷기 시간
     [SerializeField] private float walkSpeed;  // 걷기 속력
@@ -23,6 +26,8 @@ public class Monster : MonoBehaviour
     [SerializeField] protected float chaseDelayTime; // 추격 딜레이
 
     private float currentTime;
+    private static readonly int HashIswalking = Animator.StringToHash("IsWalking");
+    private static readonly int HashIsChasing = Animator.StringToHash("IsChasing");
 
     void Start()
     {
@@ -31,6 +36,7 @@ public class Monster : MonoBehaviour
         currentTime = waitTime;
         nav = GetComponent<NavMeshAgent>();
         theViewAngle = GetComponent<ViewAngle>();
+        Animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -58,6 +64,7 @@ public class Monster : MonoBehaviour
 
         isChasing = false;
         nav.ResetPath();
+        Animator.SetBool(HashIsChasing,isChasing);
     } 
 
     private void Move()
@@ -82,13 +89,18 @@ public class Monster : MonoBehaviour
 
         nav.ResetPath();
 
-        isWalking = false;
+        isWalking = !isWaiting;  // 대기 이후에는 무조건 걷기
+
+        isWaiting = !isWaiting;  // 걷기 이후에는 무조건 대기
 
         nav.speed = walkSpeed;
 
-        destination.Set(Random.Range(-10f, 10f), 0f, Random.Range(-10f, 10f));
+        destination.Set(Random.Range(-12f, 12f), 0f, Random.Range(-12.25f, 12.25f));
 
         RandomAction();
+        
+        Animator.SetBool(HashIswalking,isWalking);
+        Animator.SetBool(HashIswalking,isAction);
     }
 
     protected void TryWalk()  // 걷기
@@ -97,6 +109,7 @@ public class Monster : MonoBehaviour
         isWalking = true;
         nav.speed = walkSpeed;
         Debug.Log("걷기");
+        Animator.SetBool(HashIswalking,isWalking);
     }
 
     private void Wait()  // 대기
@@ -107,11 +120,9 @@ public class Monster : MonoBehaviour
 
     private void RandomAction()
     {
-        int _random = Random.Range(0, 2); // 대기, 걷기
-
-        if (_random == 0)
+        if (isWaiting)
             Wait();
-        else if (_random == 1)
+        else
             TryWalk();
     }
 
@@ -123,5 +134,6 @@ public class Monster : MonoBehaviour
         Debug.Log("추격중!");
         nav.speed = chaseSpeed;
         nav.SetDestination(destination);
+        Animator.SetBool(HashIsChasing,isChasing);
     }
 }
