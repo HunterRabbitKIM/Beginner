@@ -3526,6 +3526,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4363578991983522480, guid: 6924745a509f7b746bc74f3d4548b1aa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 591735397}
+    - targetCorrespondingSourceObject: {fileID: 4363578991983522480, guid: 6924745a509f7b746bc74f3d4548b1aa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 591735401}
   m_SourcePrefab: {fileID: 100100000, guid: 6924745a509f7b746bc74f3d4548b1aa, type: 3}
 --- !u!1 &591735392 stripped
 GameObject:
@@ -3564,7 +3567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewAngle: 130
-  viewDistance: 25
+  viewDistance: 80
   targetMask:
     serializedVersion: 2
     m_Bits: 8
@@ -3590,6 +3593,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 1
   m_ObstacleAvoidanceType: 3
+--- !u!114 &591735401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591735392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a893fe1737df644680ebb63c4ff3716, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgmName: Monster
+  triggerDistance: 25
 --- !u!1 &681041464
 GameObject:
   m_ObjectHideFlags: 0
@@ -4397,6 +4414,7 @@ GameObject:
   - component: {fileID: 892491554}
   - component: {fileID: 892491553}
   - component: {fileID: 892491558}
+  - component: {fileID: 892491559}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -4510,7 +4528,7 @@ Transform:
   m_GameObject: {fileID: 892491552}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -100.54, y: 2.9, z: -41.32}
+  m_LocalPosition: {x: -91.4, y: 2.9, z: -112.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4544,6 +4562,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &892491559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 892491552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 039d793e598cc16419678802c4392684, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TheBGMList:
+  - name: Default
+    audio: {fileID: 8300000, guid: e650587705c2a8744a027a6441d3f41c, type: 3}
+  - name: Monster
+    audio: {fileID: 8300000, guid: 0eff1cd308a68824b90aba9e2e2de3f7, type: 3}
 --- !u!1001 &944403743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7679,7 +7714,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1407361509}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e650587705c2a8744a027a6441d3f41c, type: 3}
