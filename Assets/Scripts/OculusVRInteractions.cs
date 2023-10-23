@@ -11,6 +11,7 @@ public class OculusVRInteractions : MonoBehaviour
     public LayerMask interactableLayer; // 상호작용 가능한 레이어 마스크
 
     private bool isTouching = false; // 터치 중인지 여부
+    private GameObject paper;
 
     private void Update()
     {
@@ -20,26 +21,43 @@ public class OculusVRInteractions : MonoBehaviour
     private void CheckTouchInteraction()
     {
         // Oculus 터치 컨트롤러의 터치 입력을 확인합니다.
-        if (OVRInput.Get(OVRInput.Touch.PrimaryIndexTrigger, OVRInput.Controller.LTouch) ||
-            OVRInput.Get(OVRInput.Touch.PrimaryIndexTrigger, OVRInput.Controller.RTouch))
+        if (OVRInput.Get(OVRInput.Button.PrimaryHandTrigger) || OVRInput.Get(OVRInput.Button.SecondaryHandTrigger))
         {
             if (!isTouching)
             {
-                // 컨트롤러에서 레이캐스트를 발사하여 상호작용 가능한 물체를 확인합니다.
-                RaycastHit hit;
-                if (Physics.Raycast(transform.position, transform.forward, out hit, interactableLayer))
+                Debug.Log(paper.name);
+                if(paper != null)
                 {
-                    // 터치하고 있는 오브젝트가 상호작용 가능한 경우 UI를 활성화합니다.
-                    uiObject.SetActive(true);
+                    if(paper.name == "Paper")
+                    {
+                        Debug.Log("Paper");
+                        isTouching = true;
+                        uiObject.SetActive(true);
+                    }
                 }
             }
-            isTouching = true;
         }
         else
         {
             // 터치 입력을 놓았을 때 UI를 비활성화합니다.
             isTouching = false;
             uiObject.SetActive(false);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Paper"))
+        {
+            paper = other.gameObject;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.CompareTag("Paper"))
+        {
+            paper = null;
         }
     }
 }

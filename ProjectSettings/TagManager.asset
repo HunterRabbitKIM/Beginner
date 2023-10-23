@@ -9,6 +9,7 @@ TagManager:
   - Plastic
   - Concrete
   - Door
+  - Paper
   layers:
   - Default
   - TransparentFX
