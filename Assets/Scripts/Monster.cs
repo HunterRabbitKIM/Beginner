@@ -41,13 +41,13 @@ public class Monster : MonoBehaviour
 
     void Update()
     {
-       // Move();
-       // ElapseTime();
-        //if (theViewAngle.View())
-       // {
-       //     StopAllCoroutines();
-       //     StartCoroutine(ChaseTargetCoroutine());
-       // }
+       Move();
+       ElapseTime();
+        if (theViewAngle.View())
+       {
+            StopAllCoroutines();
+           StartCoroutine(ChaseTargetCoroutine());
+        }
     }
 
     IEnumerator ChaseTargetCoroutine()

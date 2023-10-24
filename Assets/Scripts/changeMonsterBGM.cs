@@ -40,22 +40,6 @@ public class ChangeMonsterBGM : MonoBehaviour
         //Debug.Log(distanceToPlayer);
 
     }
-
-    /*private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "player")
-        {
-            player.GetComponent<BGMList>().PlayBGM(bgmName);
-            isPlayerInsideTrigger = true;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "player")
-        {
-            player.GetComponent<BGMList>().PlayBGM(bgmName);
-            isPlayerInsideTrigger = false;
-        }
-    }*/
 }
+
+
