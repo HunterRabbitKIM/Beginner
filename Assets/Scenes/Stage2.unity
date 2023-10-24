@@ -4183,9 +4183,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dcc9d576db751438905723918e0689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkTime: 10
+  walkTime: 30
   walkSpeed: 5
-  waitTime: 1
+  waitTime: 0
   chaseSpeed: 10
   chaseTime: 30
   currentChaseTime: 0
@@ -4202,8 +4202,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6aa138ecea46af4c9511569bd3f6120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewAngle: 130
-  viewDistance: 80
+  viewAngle: 160
+  viewDistance: 30
   targetMask:
     serializedVersion: 2
     m_Bits: 8
@@ -5447,14 +5447,29 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 892491552}
   serializedVersion: 2
+<<<<<<< HEAD
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
   m_LocalPosition: {x: 146.71, y: 12.96, z: 53.97}
+=======
+<<<<<<< HEAD
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -99.76, y: 2.67, z: -41.026}
+  m_LocalScale: {x: 0.1, y: 1, z: 0.1}
+=======
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -91.4, y: 2.9, z: -112.4}
+>>>>>>> 279997ed37e9829d567ae3f20ee90b47dde49882
   m_LocalScale: {x: 1, y: 1, z: 1}
+>>>>>>> work_ksm
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1407361510}
   m_Father: {fileID: 0}
+<<<<<<< HEAD
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
+=======
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+>>>>>>> 279997ed37e9829d567ae3f20ee90b47dde49882
 --- !u!54 &892491558
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5491,6 +5506,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 892491552}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
+  m_Script: {fileID: 11500000, guid: 366409f2044e33c4dac6ec2945ba06ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+=======
   m_Script: {fileID: 11500000, guid: 039d793e598cc16419678802c4392684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -5499,6 +5519,7 @@ MonoBehaviour:
     audio: {fileID: 8300000, guid: e650587705c2a8744a027a6441d3f41c, type: 3}
   - name: Monster
     audio: {fileID: 8300000, guid: 0eff1cd308a68824b90aba9e2e2de3f7, type: 3}
+<<<<<<< HEAD
 --- !u!1001 &920034665
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5556,6 +5577,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91d652779ec7140488b6b8e360497937, type: 3}
+=======
+>>>>>>> work_ksm
+>>>>>>> 279997ed37e9829d567ae3f20ee90b47dde49882
 --- !u!1001 &944403743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5567,6 +5591,10 @@ PrefabInstance:
     - target: {fileID: 1609996191551176, guid: 3126ca4c2d851514395844c0d42d1ca7, type: 3}
       propertyPath: m_Name
       value: Lantern
+      objectReference: {fileID: 0}
+    - target: {fileID: 1609996191551176, guid: 3126ca4c2d851514395844c0d42d1ca7, type: 3}
+      propertyPath: m_TagString
+      value: Lamp
       objectReference: {fileID: 0}
     - target: {fileID: 4310125301536240, guid: 3126ca4c2d851514395844c0d42d1ca7, type: 3}
       propertyPath: m_LocalScale.x
@@ -5582,7 +5610,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4310125301536240, guid: 3126ca4c2d851514395844c0d42d1ca7, type: 3}
       propertyPath: m_LocalPosition.x
+<<<<<<< HEAD
       value: 145.9
+=======
+      value: -98.196
+>>>>>>> 279997ed37e9829d567ae3f20ee90b47dde49882
       objectReference: {fileID: 0}
     - target: {fileID: 4310125301536240, guid: 3126ca4c2d851514395844c0d42d1ca7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8985,7 +9017,7 @@ Transform:
   m_GameObject: {fileID: 1407361509}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 1.28, z: -0.043}
+  m_LocalPosition: {x: -0, y: 1.197, z: -1.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
