@@ -113,6 +113,7 @@ public class Player : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     hit.collider.GetComponent<DoorMove>().ChangeDoorState();
+                    Debug.Log("E");
                 }
             }
         }
