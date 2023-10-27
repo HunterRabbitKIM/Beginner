@@ -10,6 +10,7 @@ TagManager:
   - Concrete
   - Door
   - Lamp
+  - Climbable
   layers:
   - Default
   - TransparentFX
@@ -19,8 +20,8 @@ TagManager:
   - UI
   - Obstacle
   - Monster
-  - 
-  - 
+  - Interactive
+  - hands
   - 
   - 
   - 
