@@ -10,6 +10,7 @@ TagManager:
   - Concrete
   - Door
   - Lamp
+  - Climbable
   - Wall
   layers:
   - Default
@@ -20,8 +21,8 @@ TagManager:
   - UI
   - Obstacle
   - Monster
-  - 
-  - 
+  - Interactive
+  - hands
   - 
   - 
   - 
