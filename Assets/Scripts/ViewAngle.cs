@@ -60,6 +60,7 @@ public class ViewAngle : MonoBehaviour
                 Vector3 direaction = (targetTrans.position - transform.position).normalized;
                 float angle = Vector3.Angle(direaction, transform.forward);
 
+                
                 if (angle < viewAngle * 0.5f)
                 {
                     RaycastHit hit;
