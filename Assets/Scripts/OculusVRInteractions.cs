@@ -11,7 +11,7 @@ public class OculusVRInteractions : MonoBehaviour
     public LayerMask interactableLayer; // 상호작용 가능한 레이어 마스크
 
     private bool isTouching = false; // 터치 중인지 여부
-    private GameObject paper;
+    public GameObject paper;
 
     private void Update()
     {
@@ -53,11 +53,5 @@ public class OculusVRInteractions : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if(other.CompareTag("Paper"))
-        {
-            paper = null;
-        }
-    }
+    
 }
