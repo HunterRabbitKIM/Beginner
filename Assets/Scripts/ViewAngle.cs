@@ -79,7 +79,7 @@ public class ViewAngle : MonoBehaviour
             {
                 if (CalcPathLength(thePlayer.transform.position) <= viewDistance)
                 {
-                    Debug.Log("주변에 뛰고 있는 플레이어의 움직임을 파악했습니다.");
+                    //Debug.Log("주변에 뛰고 있는 플레이어의 움직임을 파악했습니다.");
                     return true;
                 }
             }

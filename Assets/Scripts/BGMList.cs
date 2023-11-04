@@ -36,6 +36,10 @@ public class BGMList : MonoBehaviour
             }
     }
 
+    public void PauseBGM()
+    {
+        BGM.Pause(); // 배경 음악을 일시 정지합니다.
+    }
     void Update()
     {
         
