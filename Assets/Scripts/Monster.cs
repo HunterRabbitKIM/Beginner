@@ -166,7 +166,7 @@ public class Monster : MonoBehaviour
         isWalking = true;
         Animator.SetBool(HashIswalking, isWalking);
         nav.speed = walkSpeed;
-        Debug.Log("걷기");
+        //Debug.Log("걷기");
     }
 
     private void Wait()
@@ -174,7 +174,7 @@ public class Monster : MonoBehaviour
         currentTime = waitTime;
         Animator.SetBool(HashIswalking, false);
         nav.ResetPath();
-        Debug.Log("대기");
+        //Debug.Log("대기");
     }
 
     public void Chase(Vector3 _targetPos)
@@ -184,24 +184,25 @@ public class Monster : MonoBehaviour
         nav.SetDestination(destination);
         Animator.SetBool(HashIsChasing, isChasing);
         nav.speed = chaseSpeed;
-        Debug.Log("추격중!");
+        //Debug.Log("추격중!");
     }
     private bool DetectWall()
     {
         // Raycast를 사용하여 벽을 감지
         RaycastHit hit;
         Vector3 forward = transform.TransformDirection(Vector3.forward);
+        Vector3 wallDirection = Quaternion.Euler(0, 45, 0) * forward; // 45도 회전된 방향
 
-        if (Physics.Raycast(transform.position, forward, out hit, raycastDistance, wallMask))
+        if (Physics.Raycast(transform.position, wallDirection, out hit, raycastDistance, wallMask))
         {
             // 벽을 감지한 경우
-            Debug.DrawRay(transform.position, forward * raycastDistance, Color.red);
+            Debug.DrawRay(transform.position, wallDirection * raycastDistance, Color.red);
             return true;
         }
         else
         {
             // 벽을 감지하지 않은 경우
-            Debug.DrawRay(transform.position, forward * raycastDistance, Color.green);
+            Debug.DrawRay(transform.position, wallDirection * raycastDistance, Color.green);
             return false;
         }
     }

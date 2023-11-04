@@ -12,6 +12,7 @@ TagManager:
   - Lamp
   - Climbable
   - Wall
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -23,6 +24,8 @@ TagManager:
   - Monster
   - Interactive
   - hands
+  - Enemy
+  - Wall
   - 
   - 
   - 

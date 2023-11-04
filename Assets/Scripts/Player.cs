@@ -4,61 +4,75 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float walkSpeed = 5.0f;
-    public float runSpeed = 10.0f;
+    [SerializeField] private float walkSpeed;
+    [SerializeField] private float runSpeed;
 
-    public float mouseSensitivity = 2.0f;
-    public float verticalRotation = 0;
-    public float horizontalRotation;
-    public float interactDiastance = 5f; 
+    [SerializeField] private float lookSensitivity;
 
-    public Transform playerCamera;
+    [SerializeField] private float cameraRotationLimit;
+    [SerializeField] private float currentCameraRotationX;
 
-    float moveSpeed;
-    float hAxis;
-    float vAxis;
+    [SerializeField] private float interactDistance; //문 상호작용 거리
 
-    public float jumpPower = 8.0f;
-    public float gravity = -20f;
+    [SerializeField] private Camera theCamera;
+    [SerializeField] private Rigidbody myRigid;
+
+    private float moveSpeed; 
+    private float hAxis; 
+    private float vAxis; 
+
+    [SerializeField] private float jumpPower;
+    [SerializeField] private float gravity;
     private bool isRun = false;
 
     private CharacterController characterController;
 
+    
     Vector3 moveDirection;
 
-    // Start is called before the first frame update
     void Awake()
     {
+        myRigid = GetComponent<Rigidbody>();
         characterController = GetComponent<CharacterController>();
+        
     }
 
-    // Update is called once per frame
     void Update()
     {
         TryRun();
-        Turn();
         Move();
+        CameraRotation();       
+        CharacterRotation();    
         DoorOpen();
     }
 
-    void Turn()
+    private void CameraRotation()
     {
-        //회전
-        horizontalRotation = Input.GetAxis("Mouse X") * mouseSensitivity;
-        transform.Rotate(0, horizontalRotation, 0); //플레이어를 수평으로 회전
+        float _xRotation = Input.GetAxisRaw("Mouse Y");
+        float _cameraRotationX = _xRotation * lookSensitivity;
 
-        verticalRotation -= Input.GetAxis("Mouse Y") * mouseSensitivity;
-        verticalRotation = Mathf.Clamp(verticalRotation, -90, 90); // 상하 회전 각도 제한
-        playerCamera.localRotation = Quaternion.Euler(verticalRotation, 0, 0); // 카메라 회전 설정
+        // currentCameraRotationX += _cameraRotationX;  마우스 Y 반전
+        currentCameraRotationX -= _cameraRotationX;
+        currentCameraRotationX = Mathf.Clamp(currentCameraRotationX, -cameraRotationLimit, cameraRotationLimit);
+
+        theCamera.transform.localEulerAngles = new Vector3(currentCameraRotationX, 0f, 0f);
+    }
+    private void CharacterRotation()  // 좌우 캐릭터 회전
+    {
+        float _yRotation = Input.GetAxisRaw("Mouse X");
+        Vector3 _characterRotationY = new Vector3(0f, _yRotation, 0f) * lookSensitivity;
+        myRigid.MoveRotation(myRigid.rotation * Quaternion.Euler(_characterRotationY)); // 쿼터니언 * 쿼터니언
+
+        // Debug.Log(myRigid.rotation);  // 쿼터니언
+        // Debug.Log(myRigid.rotation.eulerAngles); // 벡터
     }
 
     void Move()
     {
-
         if (characterController.isGrounded)
         {
-            hAxis = Input.GetAxis("Horizontal") * walkSpeed;
-            vAxis = Input.GetAxis("Vertical") * walkSpeed;
+            hAxis = Input.GetAxis("Horizontal") * moveSpeed;
+            vAxis = Input.GetAxis("Vertical") * moveSpeed; 
 
             moveDirection = new Vector3(hAxis, 0, vAxis);
             moveDirection = transform.TransformDirection(moveDirection);
@@ -77,36 +91,38 @@ public class Player : MonoBehaviour
         return isRun;
     }
 
-    private void TryRun()
+    void TryRun()
     {
         if (characterController.isGrounded)
         {
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 isRun = true;
-
-                hAxis = Input.GetAxis("Horizontal") * runSpeed;
-                vAxis = Input.GetAxis("Vertical") * runSpeed;
-
-                moveDirection = new Vector3(hAxis, 0, vAxis);
-                moveDirection = transform.TransformDirection(moveDirection);
-
-                moveDirection.y += gravity * Time.deltaTime;
-                characterController.Move(moveDirection * Time.deltaTime);
+                moveSpeed = runSpeed; 
             }
-            if (Input.GetKeyUp(KeyCode.LeftShift))
+            else
             {
                 isRun = false;
-                runSpeed = walkSpeed;
+                moveSpeed = walkSpeed;
             }
+
+            hAxis = Input.GetAxis("Horizontal") * moveSpeed;
+            vAxis = Input.GetAxis("Vertical") * moveSpeed; 
+
+            moveDirection = new Vector3(hAxis, 0, vAxis);
+            moveDirection = transform.TransformDirection(moveDirection);
+
+            moveDirection.y += gravity * Time.deltaTime;
+            characterController.Move(moveDirection * Time.deltaTime);
         }
     }
-        void DoorOpen()
+
+    void DoorOpen()
     {
-        Ray ray = new Ray(transform.position, transform.forward); //???? ??????? ??????
+        Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hit;
-        //?? ???? ??? Key:E
-        if (Physics.Raycast(ray, out hit, interactDiastance))
+
+        if (Physics.Raycast(ray, out hit, interactDistance))
         {
             if (hit.collider.CompareTag("Door"))
             {
