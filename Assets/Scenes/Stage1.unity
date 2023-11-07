@@ -10849,11 +10849,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 5
   runSpeed: 11.15
-  mouseSensitivity: 2
-  verticalRotation: 0
-  horizontalRotation: 0
-  interactDiastance: 5
-  playerCamera: {fileID: 0}
+  lookSensitivity: 2
+  cameraRotationLimit: 0
+  currentCameraRotationX: 0
+  interactDistance: 5
+  theCamera: {fileID: 0}
+  myRigid: {fileID: 0}
   jumpPower: 8
   gravity: -20
 --- !u!114 &1471754721

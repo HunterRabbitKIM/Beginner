@@ -24,8 +24,6 @@ public class GameOverController : MonoBehaviour
         GameOverScreen.Setup();
         BGMList.PauseBGM();
         Time.timeScale = 0;
-       
-
 
     }
     void Start()
