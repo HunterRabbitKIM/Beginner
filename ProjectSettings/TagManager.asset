@@ -13,6 +13,7 @@ TagManager:
   - Climbable
   - Wall
   - Enemy
+  - Paper
   layers:
   - Default
   - TransparentFX
@@ -26,9 +27,7 @@ TagManager:
   - hands
   - Enemy
   - Wall
-  - 
-  - 
-  - 
+  - ObjectUI
   - 
   - 
   - 
