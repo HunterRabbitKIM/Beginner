@@ -51,7 +51,7 @@ public class ButtonVR : MonoBehaviour
 
     public void setevent()
     {
-        UIManager.instance.ShowplayerLine("문열림");
+        UIManager.instance.ShowplayerLine("문이 열리는 소리가 들린다.");
         door.GetComponent<XRGrabInteractable>().enabled = true;
     }
 }
