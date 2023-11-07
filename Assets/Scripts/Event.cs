@@ -9,7 +9,10 @@ public class Event : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        UIManager.instance.ShowplayerLine(text);
-        Destroy(gameObject);
+        if (other.tag=="Player")
+        {
+            UIManager.instance.ShowplayerLine(text);
+            Destroy(gameObject);
+        }
     }
 }
