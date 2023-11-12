@@ -3923,18 +3923,6 @@ CharacterController:
   m_SkinWidth: 0.0001
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &406749108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 406749102}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41239a0b236e31549a543b0975148149, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &429970782
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6647,9 +6635,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8904481353477386477, guid: 798c05ee1e2530b4ebb1d9d7e5a2c6a9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 406749104}
-    - targetCorrespondingSourceObject: {fileID: 8904481353477386477, guid: 798c05ee1e2530b4ebb1d9d7e5a2c6a9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 406749108}
   m_SourcePrefab: {fileID: 100100000, guid: 798c05ee1e2530b4ebb1d9d7e5a2c6a9, type: 3}
 --- !u!4 &766257952 stripped
 Transform:
@@ -13624,7 +13609,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1471754714}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7cc1539f46dabcf42bbfc2fa76e9675d, type: 3}
   m_Name: 
@@ -13834,7 +13819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7fde4a7bd5d0aa418ce8aa1e3185ab5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BGMList: {fileID: 2010980512}
+  BGMList: {fileID: 1471754723}
 --- !u!114 &1491532752
 MonoBehaviour:
   m_ObjectHideFlags: 0
