@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class PauseScreen : MonoBehaviour
 {
+    private GameObject player;
+    public BGMList BGMList;
 
     public void Setup()
     {
@@ -12,9 +14,9 @@ public class PauseScreen : MonoBehaviour
     }
     public void ResumeButton()
     {
-        Debug.Log("Å°´­¸²");
         gameObject.SetActive(false);
         Time.timeScale = 1;
+        BGMList.ResumeBGM();
     }
     public void MenuButton()
     {
