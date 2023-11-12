@@ -12,7 +12,7 @@ public class BGMList : MonoBehaviour
     }
 
     public BgmType[] TheBGMList;
-
+    public bool isPlaying;
     private AudioSource BGM;
     private string NowBGMname = "";
 
@@ -39,6 +39,11 @@ public class BGMList : MonoBehaviour
     public void PauseBGM()
     {
         BGM.Pause(); // 배경 음악을 일시 정지합니다.
+       
+    }
+    public void ResumeBGM()
+    {       
+            BGM.UnPause();
     }
     void Update()
     {

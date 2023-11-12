@@ -37,7 +37,7 @@ public class ChangeMonsterBGM : MonoBehaviour
             isPlayerInsideTrigger = false;
             // 원하는 경우, 플레이어가 범위를 나갔을 때 실행할 코드 추가 가능
         }
-        //Debug.Log(distanceToPlayer);
+        Debug.Log(distanceToPlayer);
 
     }
 }
