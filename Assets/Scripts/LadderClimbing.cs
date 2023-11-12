@@ -24,16 +24,16 @@ public class LadderClimbing : MonoBehaviour
 
     private void HandleClimbing()
     {
-        // »ç´Ù¸®¸¦ ±â¾î¿À¸£±â »óÅÂ¿¡¼­ ÀÌµ¿À» Ã³¸®ÇÏ´Â ÄÚµå
+        // ì‚¬ë‹¤ë¦¬ë¥¼ ê¸°ì–´ì˜¤ë¥´ê¸° ìƒíƒœì—ì„œ ì´ë™ì„ ì²˜ë¦¬í•˜ëŠ” ì½”ë“œ
         float verticalInput = OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick).y;
         float horizontalInput = OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick).x;
 
         Vector3 moveDirection = new Vector3(horizontalInput, verticalInput, 0);
 
-        // ÀÌµ¿ ¹æÇâ°ú È¸ÀüÀ» Á¶ÀıÇÑ´Ù.
+        // ì´ë™ ë°©í–¥ê³¼ íšŒì „ì„ ì¡°ì ˆí•œë‹¤.
         moveDirection = transform.TransformDirection(moveDirection) * climbingSpeed;
 
-        // CharcterController¸¦ »ç¿ëÇÏ¿© ÀÌµ¿
+        // CharcterControllerë¥¼ ì‚¬ìš©í•˜ì—¬ ì´ë™
         characterController.Move(moveDirection * Time.deltaTime);
 
     }
@@ -42,7 +42,7 @@ public class LadderClimbing : MonoBehaviour
     {
         if (other.CompareTag("Ladder"))
         {
-            // »ç´Ù¸® Æ®¸®°Å¿¡ ÁøÀÔÇÏ¸é ±â¾î¿À¸£±â »óÅÂ·Î ÀüÈ¯ÇÕ´Ï´Ù.
+            // ì‚¬ë‹¤ë¦¬ íŠ¸ë¦¬ê±°ì— ì§„ì…í•˜ë©´ ê¸°ì–´ì˜¤ë¥´ê¸° ìƒíƒœë¡œ ì „í™˜í•©ë‹ˆë‹¤.
             isClimbing = true;
         }
     }
@@ -51,7 +51,7 @@ public class LadderClimbing : MonoBehaviour
     {
         if (other.CompareTag("Ladder"))
         {
-            // »ç´Ù¸® Æ®¸®°Å¿¡¼­ ³ª¿À¸é ±â¾î¿À¸£±â »óÅÂ¸¦ ÇØÁ¦ÇÕ´Ï´Ù.
+            // ì‚¬ë‹¤ë¦¬ íŠ¸ë¦¬ê±°ì—ì„œ ë‚˜ì˜¤ë©´ ê¸°ì–´ì˜¤ë¥´ê¸° ìƒíƒœë¥¼ í•´ì œí•©ë‹ˆë‹¤.
             isClimbing = false;
         }
     }
