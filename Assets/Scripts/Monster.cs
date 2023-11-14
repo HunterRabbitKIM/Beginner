@@ -28,7 +28,8 @@ public class Monster : MonoBehaviour
     public LayerMask wallMask;  // 벽 레이어 마스크
 
     private float currentTime;
-    private static readonly int Anispeed = Animator.StringToHash("anispeed");
+    private static readonly int HashIswalking = Animator.StringToHash("IsWalking");
+    private static readonly int HashIsChasing = Animator.StringToHash("IsChasing");
 
     private HashSet<Vector3> visitedLocations = new HashSet<Vector3>(); // 이미 방문한 위치 저장
 
@@ -70,7 +71,7 @@ public class Monster : MonoBehaviour
 
         isChasing = false;
         nav.ResetPath();
-        Animator.SetFloat(Anispeed,nav.speed);
+        Animator.SetBool(HashIsChasing, isChasing);
     }
 
     private void Move()
@@ -123,10 +124,11 @@ public class Monster : MonoBehaviour
     {
         isAction = true;
         isWalking = false;
+        Animator.SetBool(HashIswalking, isWalking);
         isWaiting = false;
+        Animator.SetBool(HashIswalking, isAction);
         nav.ResetPath();
         nav.speed = walkSpeed;
-        Animator.SetFloat(Anispeed,nav.speed);
         SetNewRandomDestination();
         if (isWaiting)
             Wait();
@@ -149,6 +151,7 @@ public class Monster : MonoBehaviour
         if (nav.CalculatePath(destination, new NavMeshPath()))
         {
             isWalking = true;
+            Animator.SetBool(HashIswalking, isWalking);
         }
         else
         {
@@ -161,15 +164,15 @@ public class Monster : MonoBehaviour
     {
         currentTime = walkTime;
         isWalking = true;
+        Animator.SetBool(HashIswalking, isWalking);
         nav.speed = walkSpeed;
-        Animator.SetFloat(Anispeed,nav.speed);
         //Debug.Log("걷기");
     }
 
     private void Wait()
     {
         currentTime = waitTime;
-        Animator.SetFloat(Anispeed,0);
+        Animator.SetBool(HashIswalking, false);
         nav.ResetPath();
         //Debug.Log("대기");
     }
@@ -179,8 +182,8 @@ public class Monster : MonoBehaviour
         isChasing = true;
         destination = _targetPos;
         nav.SetDestination(destination);
+        Animator.SetBool(HashIsChasing, isChasing);
         nav.speed = chaseSpeed;
-        Animator.SetFloat(Anispeed,nav.speed);
         //Debug.Log("추격중!");
     }
     private bool DetectWall()

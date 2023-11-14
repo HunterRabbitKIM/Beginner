@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -19,7 +18,6 @@ public class ButtonVR : MonoBehaviour
     private bool isPressed;
 
     public GameObject door;
-    public GameObject door1;
     
     // Start is called before the first frame update
     void Start()
@@ -34,16 +32,14 @@ public class ButtonVR : MonoBehaviour
         if (!isPressed)
         {
             button.transform.localPosition = new Vector3(0, 0.003f, 0);
+            presser = other.gameObject;
+            onPress.Invoke();
             sound.Play();
             isPressed = true;
-            Debug.Log("버튼 이벤트 실행");
-            UIManager.instance.ShowplayerLine("문이 열리는 소리가 들린다.");
-            door1.gameObject.SetActive(false);
-            door.gameObject.SetActive(true);
         }
     }
 
-    /*private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         if (other==presser)
         {
@@ -51,13 +47,11 @@ public class ButtonVR : MonoBehaviour
             onRelease.Invoke();
             isPressed = false;
         }
-    }*/
+    }
 
     public void setevent()
     {
-        Debug.Log("버튼 이벤트 실행");
         UIManager.instance.ShowplayerLine("문이 열리는 소리가 들린다.");
-        door1.gameObject.SetActive(false);
-        door.gameObject.SetActive(true);
+        door.GetComponent<XRGrabInteractable>().enabled = true;
     }
 }

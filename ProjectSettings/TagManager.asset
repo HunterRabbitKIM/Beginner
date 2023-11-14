@@ -14,13 +14,9 @@ TagManager:
   - Wall
   - Enemy
   - Paper
-<<<<<<< HEAD
   - HouseFloor
   - GrassFloor
   - BrickFloor
-=======
-  - Ladder
->>>>>>> 1f14a95bdab90851630fa7370f9c606778f16c01
   layers:
   - Default
   - TransparentFX
