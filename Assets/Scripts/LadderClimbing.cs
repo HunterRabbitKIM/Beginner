@@ -8,6 +8,7 @@ public class LadderClimbing : MonoBehaviour
     public bool isClimbing = false;
 
     private CharacterController characterController;
+    
 
 
     // Start is called before the first frame update
@@ -24,18 +25,28 @@ public class LadderClimbing : MonoBehaviour
 
     private void HandleClimbing()
     {
-        // 사다리를 기어오르기 상태에서 이동을 처리하는 코드
-        float verticalInput = OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick).y;
-        float horizontalInput = OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick).x;
+        if (isClimbing == true)
+        {
+            gameObject.GetComponent<OVRPlayerController>().enabled = false;
+            gameObject.GetComponent<OVRSceneSampleController>().enabled = false;
 
-        Vector3 moveDirection = new Vector3(horizontalInput, verticalInput, 0);
+            // 사다리를 기어오르기 상태에서 이동을 처리하는 코드
+            float verticalInput = OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick).y;
+            float horizontalInput = OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick).x;
 
-        // 이동 방향과 회전을 조절한다.
-        moveDirection = transform.TransformDirection(moveDirection) * climbingSpeed;
+            Vector3 moveDirection = new Vector3(horizontalInput, verticalInput, 0);
 
-        // CharcterController를 사용하여 이동
-        characterController.Move(moveDirection * Time.deltaTime);
+            // 이동 방향과 회전을 조절한다.
+            moveDirection = transform.TransformDirection(moveDirection) * climbingSpeed;
 
+            // CharcterController를 사용하여 이동
+            characterController.Move(moveDirection * Time.deltaTime);
+        }
+        else if (isClimbing == false)
+        {
+            gameObject.GetComponent<OVRPlayerController>().enabled = true;
+            gameObject.GetComponent<OVRSceneSampleController>().enabled = true;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
