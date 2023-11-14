@@ -3,42 +3,25 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - RoomLight
-  - SamplesInfoPanel
-  - Plastic
-  - Concrete
-  - Door
-  - Lamp
-  - Climbable
-  - Wall
-  - Enemy
-  - Paper
-<<<<<<< HEAD
-  - HouseFloor
-  - GrassFloor
-  - BrickFloor
-=======
-  - Ladder
->>>>>>> 1f14a95bdab90851630fa7370f9c606778f16c01
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - 
   - Water
   - UI
-  - Obstacle
-  - Monster
-  - Interactive
-  - hands
-  - Enemy
-  - Wall
-  - ObjectUI
-  - Noninteractive
-  - GrassFloor
-  - HouseFloor
-  - BrickFloor
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
