@@ -4,10 +4,21 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Ladder
-  - Plastic
+  - Metal
   - Concrete
   - Door
+  - RoomLight
+  - Wood
+  - Brick
+  - SamplesInfoPanel
+  - Plastic
+  - Ladder
+  - GrassFloor
+  - HouseFloor
+  - BrickFloor
+  - Wall
+  - Enemy
+  - Lamp
   - Paper
   layers:
   - Default
@@ -40,8 +51,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Wall
+  - Player
   m_SortingLayers:
   - name: Default
     uniqueID: 0
