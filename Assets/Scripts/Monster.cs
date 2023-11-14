@@ -28,8 +28,7 @@ public class Monster : MonoBehaviour
     public LayerMask wallMask;  // 벽 레이어 마스크
 
     private float currentTime;
-    private static readonly int HashIswalking = Animator.StringToHash("IsWalking");
-    private static readonly int HashIsChasing = Animator.StringToHash("IsChasing");
+    private static readonly int Anispeed = Animator.StringToHash("anispeed");
 
     private HashSet<Vector3> visitedLocations = new HashSet<Vector3>(); // 이미 방문한 위치 저장
 
@@ -71,7 +70,7 @@ public class Monster : MonoBehaviour
 
         isChasing = false;
         nav.ResetPath();
-        Animator.SetBool(HashIsChasing, isChasing);
+        Animator.SetFloat(Anispeed,nav.speed);
     }
 
     private void Move()
@@ -124,11 +123,10 @@ public class Monster : MonoBehaviour
     {
         isAction = true;
         isWalking = false;
-        Animator.SetBool(HashIswalking, isWalking);
         isWaiting = false;
-        Animator.SetBool(HashIswalking, isAction);
         nav.ResetPath();
         nav.speed = walkSpeed;
+        Animator.SetFloat(Anispeed,nav.speed);
         SetNewRandomDestination();
         if (isWaiting)
             Wait();
@@ -151,7 +149,6 @@ public class Monster : MonoBehaviour
         if (nav.CalculatePath(destination, new NavMeshPath()))
         {
             isWalking = true;
-            Animator.SetBool(HashIswalking, isWalking);
         }
         else
         {
@@ -164,15 +161,15 @@ public class Monster : MonoBehaviour
     {
         currentTime = walkTime;
         isWalking = true;
-        Animator.SetBool(HashIswalking, isWalking);
         nav.speed = walkSpeed;
+        Animator.SetFloat(Anispeed,nav.speed);
         //Debug.Log("걷기");
     }
 
     private void Wait()
     {
         currentTime = waitTime;
-        Animator.SetBool(HashIswalking, false);
+        Animator.SetFloat(Anispeed,0);
         nav.ResetPath();
         //Debug.Log("대기");
     }
@@ -182,8 +179,8 @@ public class Monster : MonoBehaviour
         isChasing = true;
         destination = _targetPos;
         nav.SetDestination(destination);
-        Animator.SetBool(HashIsChasing, isChasing);
         nav.speed = chaseSpeed;
+        Animator.SetFloat(Anispeed,nav.speed);
         //Debug.Log("추격중!");
     }
     private bool DetectWall()
@@ -191,7 +188,7 @@ public class Monster : MonoBehaviour
         // Raycast를 사용하여 벽을 감지
         RaycastHit hit;
         Vector3 forward = transform.TransformDirection(Vector3.forward);
-        Vector3 wallDirection = Quaternion.Euler(0, 35, 0) * forward; // 45도 회전된 방향
+        Vector3 wallDirection = Quaternion.Euler(0, 45, 0) * forward; // 45도 회전된 방향
 
         if (Physics.Raycast(transform.position, wallDirection, out hit, raycastDistance, wallMask))
         {
@@ -225,9 +222,9 @@ public class Monster : MonoBehaviour
     {
         // 특정 미로 구간을 포함하는 영역의 조건을 설정
         // 예를 들어, 미로 구간 내의 최소 및 최대 X 및 Z 좌표 범위를 확인
-        float minX = -4f;
-        float maxX = 4f;
-        float minZ = -4f;
+        float minX = -5f;
+        float maxX = 5f;
+        float minZ = -5f;
         float maxZ = 0f;
 
         if (position.x >= minX && position.x <= maxX && position.z >= minZ && position.z <= maxZ)
