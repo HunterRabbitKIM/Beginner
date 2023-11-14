@@ -35,12 +35,11 @@ public class Monster : MonoBehaviour
 
     void Start()
     {
-        currentTime = waitTime;
         isAction = true;   // 대기도 행동
         isChasing = false;
         nav = GetComponent<NavMeshAgent>();
         theViewAngle = GetComponent<ViewAngle>();
-        Animator = GetComponent < Animator>();
+        Animator = GetComponent<Animator>();
 
         SetNewRandomDestination();
     }
@@ -70,7 +69,7 @@ public class Monster : MonoBehaviour
 
         isChasing = false;
         nav.ResetPath();
-        Animator.SetFloat(Anispeed,nav.speed);
+        Animator.SetFloat(Anispeed, nav.speed);
     }
 
     private void Move()
@@ -84,7 +83,7 @@ public class Monster : MonoBehaviour
             }
             else
             {
-            // 벽을 감지하고 회피 경로 계산
+                // 벽을 감지하고 회피 경로 계산
                 if (DetectWall())
                 {
                     CalculateAvoidancePath();
@@ -114,7 +113,7 @@ public class Monster : MonoBehaviour
         if (isAction)
         {
             currentTime -= Time.deltaTime;
-            if (currentTime <= 0 && !isChasing)  // 랜덤하게 다음 행동을 개시
+            if (currentTime <= 0 && !isChasing)  
                 ReSet();
         }
     }
@@ -122,11 +121,10 @@ public class Monster : MonoBehaviour
     protected virtual void ReSet()
     {
         isAction = true;
-        isWalking = false;
-        isWaiting = false;
+        isWaiting = !isWaiting;
         nav.ResetPath();
         nav.speed = walkSpeed;
-        Animator.SetFloat(Anispeed,nav.speed);
+        Animator.SetFloat(Anispeed, nav.speed);
         SetNewRandomDestination();
         if (isWaiting)
             Wait();
@@ -162,16 +160,18 @@ public class Monster : MonoBehaviour
         currentTime = walkTime;
         isWalking = true;
         nav.speed = walkSpeed;
-        Animator.SetFloat(Anispeed,nav.speed);
-        //Debug.Log("걷기");
+        Animator.SetFloat(Anispeed, nav.speed);
+        Debug.Log("걷기");
     }
 
     private void Wait()
     {
         currentTime = waitTime;
-        Animator.SetFloat(Anispeed,0);
+        isWaiting = true;
+        isWalking = false;
+        Animator.SetFloat(Anispeed, 0);
         nav.ResetPath();
-        //Debug.Log("대기");
+        Debug.Log("대기");
     }
 
     public void Chase(Vector3 _targetPos)
@@ -180,7 +180,7 @@ public class Monster : MonoBehaviour
         destination = _targetPos;
         nav.SetDestination(destination);
         nav.speed = chaseSpeed;
-        Animator.SetFloat(Anispeed,nav.speed);
+        Animator.SetFloat(Anispeed, nav.speed);
         //Debug.Log("추격중!");
     }
     private bool DetectWall()
