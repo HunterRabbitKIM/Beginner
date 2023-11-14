@@ -191,7 +191,7 @@ public class Monster : MonoBehaviour
         // Raycast를 사용하여 벽을 감지
         RaycastHit hit;
         Vector3 forward = transform.TransformDirection(Vector3.forward);
-        Vector3 wallDirection = Quaternion.Euler(0, 45, 0) * forward; // 45도 회전된 방향
+        Vector3 wallDirection = Quaternion.Euler(0, 35, 0) * forward; // 45도 회전된 방향
 
         if (Physics.Raycast(transform.position, wallDirection, out hit, raycastDistance, wallMask))
         {
@@ -225,9 +225,9 @@ public class Monster : MonoBehaviour
     {
         // 특정 미로 구간을 포함하는 영역의 조건을 설정
         // 예를 들어, 미로 구간 내의 최소 및 최대 X 및 Z 좌표 범위를 확인
-        float minX = -5f;
-        float maxX = 5f;
-        float minZ = -5f;
+        float minX = -4f;
+        float maxX = 4f;
+        float minZ = -4f;
         float maxZ = 0f;
 
         if (position.x >= minX && position.x <= maxX && position.z >= minZ && position.z <= maxZ)

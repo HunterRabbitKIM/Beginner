@@ -14,6 +14,9 @@ TagManager:
   - Wall
   - Enemy
   - Paper
+  - HouseFloor
+  - GrassFloor
+  - BrickFloor
   layers:
   - Default
   - TransparentFX
@@ -29,9 +32,9 @@ TagManager:
   - Wall
   - ObjectUI
   - Noninteractive
-  - 
-  - 
-  - 
+  - GrassFloor
+  - HouseFloor
+  - BrickFloor
   - 
   - 
   - 
