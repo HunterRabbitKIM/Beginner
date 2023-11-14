@@ -25,6 +25,7 @@ public class Event3 : MonoBehaviour
         {
             horrorpic.gameObject.SetActive(true);
             horrorpic.GetComponent<AudioSource>().Play();
+            Destroy(gameObject);
         }
     }
 }
