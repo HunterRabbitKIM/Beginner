@@ -14,8 +14,8 @@ public class Event2 : MonoBehaviour
         {
             if (item.myName().Equals("ladder"))
             {
-                ladder.gameObject.SetActive(true);
                 item.destroy();
+                ladder.gameObject.SetActive(true);
             }
         }
     }

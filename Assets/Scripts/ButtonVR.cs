@@ -20,6 +20,8 @@ public class ButtonVR : MonoBehaviour
 
     public GameObject door;
     public GameObject door1;
+    public GameObject EnemyEvent1;
+    public GameObject Sound;
     
     // Start is called before the first frame update
     void Start()
@@ -40,6 +42,8 @@ public class ButtonVR : MonoBehaviour
             UIManager.instance.ShowplayerLine("문이 열리는 소리가 들린다.");
             door1.gameObject.SetActive(false);
             door.gameObject.SetActive(true);
+            EnemyEvent1.gameObject.SetActive(true);
+            Sound.GetComponent<AudioSource>().Play();
         }
     }
 
@@ -52,12 +56,5 @@ public class ButtonVR : MonoBehaviour
             isPressed = false;
         }
     }*/
-
-    public void setevent()
-    {
-        Debug.Log("버튼 이벤트 실행");
-        UIManager.instance.ShowplayerLine("문이 열리는 소리가 들린다.");
-        door1.gameObject.SetActive(false);
-        door.gameObject.SetActive(true);
-    }
+    
 }
