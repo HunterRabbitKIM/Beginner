@@ -32,7 +32,8 @@ public class GameManager : MonoBehaviour
 
     public void StartBtn()
     {
-        SceneManager.LoadScene("Stage1");
+        //SceneManager.LoadScene("Stage1");
+        LoadingSceneController.LoadScene("Stage1");
     }
 
     public void Option()

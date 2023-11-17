@@ -11,7 +11,7 @@ public class Portal : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            SceneManager.LoadScene(sceneToLoad);
+            LoadingSceneController.LoadScene(sceneToLoad);
         }
     }
 }
