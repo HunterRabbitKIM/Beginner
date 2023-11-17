@@ -19,6 +19,7 @@ TagManager:
   - Wall
   - Enemy
   - Lamp
+  - Paper
   layers:
   - Default
   - TransparentFX
