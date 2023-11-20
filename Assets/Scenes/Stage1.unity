@@ -13453,6 +13453,74 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2364145246892856111, guid: c2327c57515b43d41ba2728111012dfa, type: 3}
   m_PrefabInstance: {fileID: 6969072025434847523}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &929817722
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 929817723}
+  - component: {fileID: 929817725}
+  - component: {fileID: 929817724}
+  m_Layer: 0
+  m_Name: Event7
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &929817723
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929817722}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 39.413147, y: -7.1943717, z: -66.62121}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1601128907}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &929817724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929817722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e38047124afd9e9428244527ce6ace66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: "\uD3B8\uC9C0\uAC00 \uC788\uB2E4. \uC8FC\uC6CC\uBCF4\uC790!\n(\uC870\uC774\uC2A4\uD2F1\uC758
+    \uADF8\uB7A9\uC744 \uC774\uC6A9\uD558\uC5EC \uC8FC\uC6CC\uBCF4\uC790)"
+--- !u!65 &929817725
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929817722}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &931799682
 GameObject:
   m_ObjectHideFlags: 0
@@ -16150,7 +16218,7 @@ GameObject:
   - component: {fileID: 1165558845}
   - component: {fileID: 1165558846}
   m_Layer: 0
-  m_Name: Priest
+  m_Name: w
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22596,6 +22664,7 @@ Transform:
   - {fileID: 1513081484}
   - {fileID: 959259651}
   - {fileID: 1515209829}
+  - {fileID: 929817723}
   - {fileID: 212756652}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
