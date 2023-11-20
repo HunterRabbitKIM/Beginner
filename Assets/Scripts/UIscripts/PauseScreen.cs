@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class PauseScreen : MonoBehaviour
 {
     private GameObject player;
-    public BGMList BGMList;
+    public SoundManager SoundManager;
+    public SoundOptionScreen SoundOptionScreen;
 
     public void Setup()
     {
@@ -16,16 +17,17 @@ public class PauseScreen : MonoBehaviour
     {
         gameObject.SetActive(false);
         Time.timeScale = 1;
-        BGMList.ResumeBGM();
+        SoundManager.ResumeBGM();
     }
     public void MenuButton()
     {
         SceneManager.LoadScene("Title");
         Time.timeScale = 1;
     }
-    public void OptionButton()
+    public void SoundOptionButton()
     {
-        Debug.Log("¹Ì±¸Çö");
+        SoundOptionScreen.Setup();
+        gameObject.SetActive(false);
     }
 
 }

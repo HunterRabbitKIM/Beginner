@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GameOverController : MonoBehaviour
 {
     public GameOverScreen GameOverScreen;
-    public BGMList BGMList;
+    public SoundManager SoundManager;
     private GameObject player;
     private bool isGameOver = false;
 
@@ -24,7 +24,7 @@ public class GameOverController : MonoBehaviour
         Debug.Log("게임 오버 함수 호출!");
         GameOverScreen.Setup();
         //BGMList.PauseBGM();
-        player.GetComponent<BGMList>().PlayBGM("GameOver"); // BGM 재생 로직을 실행합니다.
+        player.GetComponent<SoundManager>().PlayBGM("GameOver"); // BGM 재생 로직을 실행합니다.
         Time.timeScale = 0;
 
         
