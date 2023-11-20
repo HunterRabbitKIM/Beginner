@@ -5,29 +5,42 @@ using UnityEngine.Audio;
 using UnityEngine.UI;
 public class volumeSetting : MonoBehaviour
 {
-    public AudioMixer masterMixer;
-    public Slider audioSlider;
+    [SerializeField] private AudioMixer myMixer;
+    [SerializeField] private Slider BgmSlider;
+    [SerializeField] private Slider SfxSlider;
 
-    public void AudioControl()
+    private void start()
     {
-        float sound = audioSlider.value;
-        if (sound == -40f) masterMixer.SetFloat("BGM", -80);
-        else masterMixer.SetFloat("BGM", sound);
+        if (PlayerPrefs.HasKey("BgmVolume"))
+        {
+            LoadVolume();
+        }
+        else
+        {
+            SetBGMVolume();
+            SetSFXVolume();
+        }
+    }
+   
+    public void SetBGMVolume()
+    {
+        float volume = BgmSlider.value;
+        myMixer.SetFloat("BGM", Mathf.Log10(volume)*20);
+        PlayerPrefs.SetFloat("BgmVolume", volume);
+    }
+    public void SetSFXVolume()
+    {
+        float volume = SfxSlider.value;
+        myMixer.SetFloat("SFX", Mathf.Log10(volume) * 20);
+        PlayerPrefs.SetFloat("SfxVolume", volume);
     }
 
-    public void ToggleAudioVolume()
+    private void LoadVolume()
     {
-        AudioListener.volume = AudioListener.volume == 0 ? 1 : 0;
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+        BgmSlider.value = PlayerPrefs.GetFloat("BgmVolume");
+        SfxSlider.value = PlayerPrefs.GetFloat("SfxVolume");
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        SetBGMVolume();
+        SetSFXVolume();
     }
 }

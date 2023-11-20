@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class changeHouseBGM : MonoBehaviour
+public class ChangeBGMTrigger : MonoBehaviour
 {
-    public string bgmName = "";
+    public string OutTriggerBgmName;
+    public string InTrigger_BgmName;
     private GameObject player;
     [SerializeField] public float triggerDistance;
     private bool isPlayerInsideTrigger;
@@ -29,15 +30,17 @@ public class changeHouseBGM : MonoBehaviour
         if (distanceToPlayer <= triggerDistance && !isPlayerInsideTrigger)
         {
             isPlayerInsideTrigger = true;
-            player.GetComponent<BGMList>().PlayBGM("House"); // BGM 재생 로직을 실행합니다.
+            player.GetComponent<SoundManager>().PlayBGM(InTrigger_BgmName); 
         }
         else if (distanceToPlayer > triggerDistance && isPlayerInsideTrigger)
         {
-            player.GetComponent<BGMList>().PlayBGM("Forest"); // BGM 재생 로직을 실행합니다.
+            player.GetComponent<SoundManager>().PlayBGM(OutTriggerBgmName); 
             isPlayerInsideTrigger = false;
-            // 원하는 경우, 플레이어가 범위를 나갔을 때 실행할 코드 추가 가능
+            
         }
         //Debug.Log(distanceToPlayer);
 
     }
 }
+
+

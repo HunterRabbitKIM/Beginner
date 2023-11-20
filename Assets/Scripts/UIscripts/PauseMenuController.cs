@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PauseMenuController : MonoBehaviour
 {
-    public BGMList BGMList;
+    public SoundManager SoundManager;
     public PauseScreen PauseScreen;
 
 
@@ -19,7 +19,7 @@ public class PauseMenuController : MonoBehaviour
     public void Pause()
     {
         PauseScreen.Setup();
-        BGMList.PauseBGM();
+        SoundManager.PauseBGM();
         Time.timeScale = 0;
     }
     void Start()

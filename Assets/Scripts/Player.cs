@@ -140,7 +140,7 @@ public class Player : MonoBehaviour
     }
     public void RunSound(AudioClip soundClip)
     {
-        audioSource.volume = 0.4f;
+        
         audioSource.clip = soundClip;
         audioSource.loop = true;
         audioSource.Play();

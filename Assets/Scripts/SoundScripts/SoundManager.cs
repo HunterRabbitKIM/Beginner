@@ -2,23 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BGMList : MonoBehaviour
+public class SoundManager : MonoBehaviour
 {
     [System.Serializable]
     public struct BgmType
     {
         public string name;
         public AudioClip audio;
+        
+    }
+    [System.Serializable]
+    public struct SFXType
+    {
+        public string name;
+        public AudioClip audio;
+
     }
 
     public BgmType[] TheBGMList;
-    public bool isPlaying;
-    private AudioSource BGM;
+    public AudioSource BGM;
+    public AudioSource SFX;
     private string NowBGMname = "";
 
     void Start()
     {
-        BGM = gameObject.AddComponent<AudioSource>();
+        if (BGM == null)
+        {
+            BGM = gameObject.AddComponent<AudioSource>();
+        }
         BGM.loop = true;
         if (TheBGMList.Length > 0) PlayBGM(TheBGMList[0].name);
     }
@@ -34,6 +45,11 @@ public class BGMList : MonoBehaviour
                 BGM.Play();
                 NowBGMname = name;
             }
+    }
+
+    public void PlaySFX(AudioClip clip)
+    {
+        SFX.PlayOneShot(clip);
     }
 
     public void PauseBGM()
