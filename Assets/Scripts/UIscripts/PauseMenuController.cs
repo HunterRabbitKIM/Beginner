@@ -7,12 +7,29 @@ public class PauseMenuController : MonoBehaviour
 {
     public SoundManager SoundManager;
     public PauseScreen PauseScreen;
+    public SoundOptionScreen SoundOptionScreen;
 
+    private enum ActiveMenu
+    {
+        None,
+        Pause,
+        SoundOption
+    }
 
+    private ActiveMenu currentMenu = ActiveMenu.None;
+
+    private void Update()
+    {
+        if (currentMenu == ActiveMenu.None)
+        {
+            PauseButton();
+        }
+
+    }
     private void PauseButton()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
-        {   
+        {
             Pause();
         }
     }
@@ -21,15 +38,18 @@ public class PauseMenuController : MonoBehaviour
         PauseScreen.Setup();
         SoundManager.PauseBGM();
         Time.timeScale = 0;
+        currentMenu = ActiveMenu.Pause;
     }
-    void Start()
+    public void ResumeGame()
     {
-
+        Time.timeScale = 1;
+        SoundManager.ResumeBGM();
+        currentMenu = ActiveMenu.None;
     }
-
-    // Update is called once per frame
-    void Update()
+    public void ShowSoundOptions()
     {
-        PauseButton();
+        SoundOptionScreen.Setup();
+        currentMenu = ActiveMenu.SoundOption;
     }
+
 }

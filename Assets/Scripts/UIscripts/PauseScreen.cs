@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class PauseScreen : MonoBehaviour
 {
-    private GameObject player;
+    public PauseMenuController PauseMenuController;
     public SoundManager SoundManager;
     public SoundOptionScreen SoundOptionScreen;
 
@@ -15,9 +15,8 @@ public class PauseScreen : MonoBehaviour
     }
     public void ResumeButton()
     {
+        PauseMenuController.ResumeGame();
         gameObject.SetActive(false);
-        Time.timeScale = 1;
-        SoundManager.ResumeBGM();
     }
     public void MenuButton()
     {
@@ -26,7 +25,7 @@ public class PauseScreen : MonoBehaviour
     }
     public void SoundOptionButton()
     {
-        SoundOptionScreen.Setup();
+        PauseMenuController.ShowSoundOptions();
         gameObject.SetActive(false);
     }
 

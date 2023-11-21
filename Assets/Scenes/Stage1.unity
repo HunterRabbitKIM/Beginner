@@ -13626,6 +13626,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2364145246892856111, guid: 6b5ed7ceb2119f64cbf5ea8933ae3eca, type: 3}
   m_PrefabInstance: {fileID: 6152857966201346341}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &987377579 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2125825111189134971, guid: 8124831b8282a13408fbbd930ecf98b6, type: 3}
+  m_PrefabInstance: {fileID: 1619761879}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7fde4a7bd5d0aa418ce8aa1e3185ab5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &995758788
 GameObject:
   m_ObjectHideFlags: 0
@@ -21930,6 +21941,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1557833122911585095, guid: 8124831b8282a13408fbbd930ecf98b6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2125825111189134971, guid: 8124831b8282a13408fbbd930ecf98b6, type: 3}
+      propertyPath: SoundManager
+      value: 
+      objectReference: {fileID: 2021823604}
+    - target: {fileID: 2125825111189134971, guid: 8124831b8282a13408fbbd930ecf98b6, type: 3}
+      propertyPath: PauseMenuController
+      value: 
+      objectReference: {fileID: 2021823605}
     - target: {fileID: 2791362856770877635, guid: 8124831b8282a13408fbbd930ecf98b6, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -21957,6 +21980,14 @@ PrefabInstance:
     - target: {fileID: 3081164773288254779, guid: 8124831b8282a13408fbbd930ecf98b6, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3352273883511232206, guid: 8124831b8282a13408fbbd930ecf98b6, type: 3}
+      propertyPath: m_margin.w
+      value: 256.40836
+      objectReference: {fileID: 0}
+    - target: {fileID: 3656539749131594281, guid: 8124831b8282a13408fbbd930ecf98b6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResumeButton
       objectReference: {fileID: 0}
     - target: {fileID: 4231794348300337478, guid: 8124831b8282a13408fbbd930ecf98b6, type: 3}
       propertyPath: m_AnchorMax.x
@@ -22057,6 +22088,22 @@ PrefabInstance:
     - target: {fileID: 7056935924059629893, guid: 8124831b8282a13408fbbd930ecf98b6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7662903938600719050, guid: 8124831b8282a13408fbbd930ecf98b6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -803.0332
+      objectReference: {fileID: 0}
+    - target: {fileID: 7662903938600719050, guid: 8124831b8282a13408fbbd930ecf98b6, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -812.8887
+      objectReference: {fileID: 0}
+    - target: {fileID: 7662903938600719050, guid: 8124831b8282a13408fbbd930ecf98b6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 343.24207
+      objectReference: {fileID: 0}
+    - target: {fileID: 7662903938600719050, guid: 8124831b8282a13408fbbd930ecf98b6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 288.2544
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25255,6 +25302,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1857311642}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1858134544 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2649347245911903056, guid: 8124831b8282a13408fbbd930ecf98b6, type: 3}
+  m_PrefabInstance: {fileID: 1619761879}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eb310bd7e927414fbffbd36a28c3b17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1862427337 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8751386502240410090, guid: beb740d872f755c4797491edaa67e321, type: 3}
@@ -27551,7 +27609,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SoundManager: {fileID: 2021823604}
-  PauseScreen: {fileID: 0}
+  PauseScreen: {fileID: 987377579}
+  SoundOptionScreen: {fileID: 1858134544}
 --- !u!82 &2021823606
 AudioSource:
   m_ObjectHideFlags: 0
@@ -36639,7 +36698,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SoundManager: {fileID: 7232484507652861549}
-  PauseScreen: {fileID: 0}
+  PauseScreen: {fileID: 987377579}
+  SoundOptionScreen: {fileID: 1858134544}
 --- !u!4 &3770904871817390468
 Transform:
   m_ObjectHideFlags: 0
