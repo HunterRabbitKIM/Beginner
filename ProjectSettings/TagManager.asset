@@ -20,6 +20,7 @@ TagManager:
   - Enemy
   - Lamp
   - Paper
+  - Story
   layers:
   - Default
   - TransparentFX
