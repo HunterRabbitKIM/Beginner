@@ -12,10 +12,11 @@ public class ViewAngle : MonoBehaviour
     private NavMeshAgent nav;
     private Monster monster;
     private Player thePlayer;
+    private OVRPlayerController theOVRPlayerController;
 
     void Start()
     {
-        thePlayer = FindObjectOfType<Player>();
+        theOVRPlayerController = FindObjectOfType<OVRPlayerController>();
         monster = GetComponentInParent<Monster>();
         nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
         StartCoroutine("Viewing");
@@ -33,7 +34,7 @@ public class ViewAngle : MonoBehaviour
 
     public Vector3 GetTargetPos()
     {
-        return thePlayer.transform.position;
+        return theOVRPlayerController.transform.position;
     }
 
     private Vector3 BoundaryAngle(float angle)
@@ -77,7 +78,7 @@ public class ViewAngle : MonoBehaviour
             }
             if (thePlayer.GetRun())
             {
-                if (CalcPathLength(thePlayer.transform.position) <= viewDistance)
+                if (CalcPathLength(theOVRPlayerController.transform.position) <= viewDistance)
                 {
                     //Debug.Log("주변에 뛰고 있는 플레이어의 움직임을 파악했습니다.");
                     return true;
