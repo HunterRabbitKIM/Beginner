@@ -839,7 +839,7 @@ GameObject:
   m_Component:
   - component: {fileID: 112877118}
   - component: {fileID: 112877119}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Story_Trigger4
   m_TagString: Story
   m_Icon: {fileID: 0}
@@ -876,7 +876,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -8590,7 +8590,7 @@ GameObject:
   m_Component:
   - component: {fileID: 520675443}
   - component: {fileID: 520675444}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Story_Trigger7
   m_TagString: Story
   m_Icon: {fileID: 0}
@@ -8627,7 +8627,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -9155,7 +9155,7 @@ GameObject:
   m_Component:
   - component: {fileID: 567369056}
   - component: {fileID: 567369057}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Story_Trigger11
   m_TagString: Story
   m_Icon: {fileID: 0}
@@ -9192,7 +9192,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -13732,7 +13732,7 @@ GameObject:
   - component: {fileID: 867049426}
   - component: {fileID: 867049428}
   - component: {fileID: 867049427}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Story_Trigger1
   m_TagString: Story
   m_Icon: {fileID: 0}
@@ -13761,7 +13761,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 867049425}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ec6392a0139ad042a31cf0c82e5b42e, type: 3}
   m_Name: 
@@ -13780,11 +13780,9 @@ MonoBehaviour:
   - {fileID: 833978951}
   - {fileID: 1776815333}
   - {fileID: 1731327023}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 32
   storyTrigger: {fileID: 867049425}
   arraySize: 13
+  isTrigger: 0
 --- !u!65 &867049428
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13800,7 +13798,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -13816,7 +13814,7 @@ GameObject:
   m_Component:
   - component: {fileID: 882407452}
   - component: {fileID: 882407453}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Story_Trigger8
   m_TagString: Story
   m_Icon: {fileID: 0}
@@ -13853,7 +13851,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -14875,7 +14873,7 @@ GameObject:
   m_Component:
   - component: {fileID: 961568300}
   - component: {fileID: 961568301}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Story_Trigger13
   m_TagString: Story
   m_Icon: {fileID: 0}
@@ -14912,7 +14910,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -20979,7 +20977,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1358221354}
   - component: {fileID: 1358221355}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Story_Trigger10
   m_TagString: Story
   m_Icon: {fileID: 0}
@@ -21016,7 +21014,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -24014,7 +24012,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1583949289}
   - component: {fileID: 1583949290}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Story_Trigger3
   m_TagString: Story
   m_Icon: {fileID: 0}
@@ -24051,7 +24049,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -24537,7 +24535,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1634195918}
   - component: {fileID: 1634195919}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Story_Trigger12
   m_TagString: Story
   m_Icon: {fileID: 0}
@@ -24574,7 +24572,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -26775,7 +26773,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1770724899}
   - component: {fileID: 1770724900}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Story_Trigger6
   m_TagString: Story
   m_Icon: {fileID: 0}
@@ -26812,7 +26810,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -27203,7 +27201,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1810791707}
   - component: {fileID: 1810791708}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Story_Trigger9
   m_TagString: Story
   m_Icon: {fileID: 0}
@@ -27240,7 +27238,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -28073,7 +28071,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1864518154}
   - component: {fileID: 1864518155}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Story_Trigger2
   m_TagString: Story
   m_Icon: {fileID: 0}
@@ -28110,7 +28108,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -28649,7 +28647,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1897248933}
   - component: {fileID: 1897248934}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Story_Trigger5
   m_TagString: Story
   m_Icon: {fileID: 0}
@@ -28686,7 +28684,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -29719,6 +29717,9 @@ PrefabInstance:
       insertIndex: 2
       addedObject: {fileID: 2021823603}
     - targetCorrespondingSourceObject: {fileID: 100008, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
+      insertIndex: 5
+      addedObject: {fileID: 2021823612}
+    - targetCorrespondingSourceObject: {fileID: 100008, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2021823599}
     - targetCorrespondingSourceObject: {fileID: 100008, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
@@ -29730,6 +29731,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100008, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2021823606}
+    - targetCorrespondingSourceObject: {fileID: 100008, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2021823611}
   m_SourcePrefab: {fileID: 100100000, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
 --- !u!4 &1927252773 stripped
 Transform:
@@ -30638,6 +30642,56 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &2021823611
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021823598}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2021823612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021823598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ec6392a0139ad042a31cf0c82e5b42e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storyUi:
+  - {fileID: 1609788536}
+  - {fileID: 1233750181}
+  - {fileID: 1141411758}
+  - {fileID: 321800622}
+  - {fileID: 153352701}
+  - {fileID: 256920457}
+  - {fileID: 786380240}
+  - {fileID: 862273089}
+  - {fileID: 449021656}
+  - {fileID: 583040455}
+  - {fileID: 833978951}
+  - {fileID: 1776815333}
+  - {fileID: 1731327023}
+  storyTrigger: {fileID: 867049425}
+  arraySize: 13
+  isTrigger: 0
 --- !u!1001 &2028499127
 PrefabInstance:
   m_ObjectHideFlags: 0
