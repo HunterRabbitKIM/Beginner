@@ -28,7 +28,7 @@ public class LoadingSceneController : MonoBehaviour
         AsyncOperation op = SceneManager.LoadSceneAsync(nextScene);
         op.allowSceneActivation = false;
 
-        float timer = 0f;
+        float timer = 0.5f;
         while (!op.isDone)
         {
             yield return null;
