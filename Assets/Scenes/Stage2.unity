@@ -2237,6 +2237,12 @@ MonoBehaviour:
   EnableLinearMovement: 1
   EnableRotation: 1
   RotationEitherThumbstick: 0
+  MoveScale: 3
+  isRun: 0
+  floorRunSounds:
+  - {fileID: 8300000, guid: c9f7c01ee140baf4ba4940876ff27b73, type: 3}
+  - {fileID: 8300000, guid: 73f549226bccd3c4f8ac39f47f5f1565, type: 3}
+  - {fileID: 8300000, guid: b74cb4b6041e36f4db6726a1248e6d32, type: 3}
 --- !u!114 &119355126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2768,7 +2774,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &129057548
 GameObject:
   m_ObjectHideFlags: 0
@@ -11667,6 +11673,10 @@ PrefabInstance:
       value: Priest
       objectReference: {fileID: 0}
     - target: {fileID: 4363578991983522480, guid: 6924745a509f7b746bc74f3d4548b1aa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4363578991983522480, guid: 6924745a509f7b746bc74f3d4548b1aa, type: 3}
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
@@ -16795,7 +16805,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!143 &892491554
 CharacterController:
   m_ObjectHideFlags: 0

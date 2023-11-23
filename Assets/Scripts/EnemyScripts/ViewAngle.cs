@@ -76,7 +76,7 @@ public class ViewAngle : MonoBehaviour
                     }
                 }
             }
-            if (thePlayer.GetRun())
+            if (theOVRPlayerController.GetRun())
             {
                 if (CalcPathLength(theOVRPlayerController.transform.position) <= viewDistance)
                 {

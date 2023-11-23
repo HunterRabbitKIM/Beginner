@@ -151,7 +151,7 @@ public class OVRPlayerController : MonoBehaviour
     protected CharacterController Controller = null;
     protected OVRCameraRig CameraRig = null;
 
-    private float MoveScale = 1.0f;
+    public float MoveScale = 1.0f;
     private Vector3 MoveThrottle = Vector3.zero;
     private float FallSpeed = 0.0f;
     private OVRPose? InitialPose;
@@ -175,6 +175,11 @@ public class OVRPlayerController : MonoBehaviour
 
     // Run Trigger
     public bool isRun;
+
+    // Sound
+    private AudioSource audioSource;
+    public AudioClip[] floorRunSounds;
+    private bool isPlayingRunSound = false;
 
     void Start()
     {
@@ -253,6 +258,78 @@ public class OVRPlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
             buttonRotation += RotationRatchet;
 #endif
+
+        UpdateRunSound();
+    }
+
+    //Sound
+    void UpdateRunSound()
+    {
+        if (isRun)
+        {
+            if (!isPlayingRunSound)
+            {
+                audioSource.loop = true;
+                CheckGroundTagAndPlaySound();
+                isPlayingRunSound = true;
+            }
+        }
+        else
+        {
+            if (isPlayingRunSound)
+            {
+                StopRunSound();
+                isPlayingRunSound = false;
+            }
+        }
+    }
+
+    public void RunSound(AudioClip soundClip)
+    {
+
+        audioSource.clip = soundClip;
+        audioSource.loop = true;
+        audioSource.Play();
+    }
+    public void StopRunSound()
+    {
+        audioSource.Stop();
+    }
+
+    void CheckGroundTagAndPlaySound()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 10.0f))
+        {
+            Debug.DrawRay(transform.position, Vector3.down * 10.0f, Color.red, 1.0f);
+            string groundTag = hit.collider.tag;
+            Debug.Log("Ground Tag: " + groundTag);
+
+            if (isRun)
+            {
+                // 바닥 태그에 따라 다른 소리를 재생
+                int soundIndex = GetSoundIndexByGroundTag(groundTag);
+                if (soundIndex != -1)
+                {
+                    RunSound(floorRunSounds[soundIndex]);
+                }
+            }
+        }
+    }
+
+    int GetSoundIndexByGroundTag(string groundTag)
+    {
+        // 바닥 태그에 따라 해당하는 소리의 인덱스를 반환
+        for (int i = 0; i < floorRunSounds.Length; i++)
+        {
+            if (groundTag.Equals(floorRunSounds[i].name))
+            {
+                return i;
+            }
+        }
+
+        // 매칭되는 소리가 없는 경우
+        return -1;
     }
 
     protected virtual void UpdateController()
@@ -392,9 +469,10 @@ public class OVRPlayerController : MonoBehaviour
             float moveInfluence = Acceleration * 0.1f * MoveScale * MoveScaleMultiplier;
 
             // Run!
-            if (dpad_move && Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift) || OVRInput.Get(OVRInput.Button.PrimaryHandTrigger))
+            if (dpad_move || Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift) || OVRInput.Get(OVRInput.Button.PrimaryHandTrigger))
             {
-                moveInfluence *= 2.0f;
+                MoveScale *= 10.0f;
+                Debug.Log(moveInfluence);
                 isRun = true;
             }
             else
