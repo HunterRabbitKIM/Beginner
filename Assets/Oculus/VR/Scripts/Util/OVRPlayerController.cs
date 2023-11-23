@@ -173,6 +173,9 @@ public class OVRPlayerController : MonoBehaviour
 
     private bool playerControllerEnabled = false;
 
+    // Run Trigger
+    public bool isRun;
+
     void Start()
     {
         // Add eye-depth as a camera offset from the player controller
@@ -339,6 +342,11 @@ public class OVRPlayerController : MonoBehaviour
             MoveThrottle += (actualXZ - predictedXZ) / (SimulationRate * Time.deltaTime);
     }
 
+    public bool GetRun()
+    {
+        return isRun;
+    }
+
 
     public virtual void UpdateMovement()
     {
@@ -384,8 +392,16 @@ public class OVRPlayerController : MonoBehaviour
             float moveInfluence = Acceleration * 0.1f * MoveScale * MoveScaleMultiplier;
 
             // Run!
-            if (dpad_move || Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+            if (dpad_move && Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift) || OVRInput.Get(OVRInput.Button.PrimaryHandTrigger))
+            {
                 moveInfluence *= 2.0f;
+                isRun = true;
+            }
+            else
+            {
+                isRun = false;
+            }
+                
 
             Quaternion ort = transform.rotation;
             Vector3 ortEuler = ort.eulerAngles;

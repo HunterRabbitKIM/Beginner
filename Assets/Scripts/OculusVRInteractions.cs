@@ -17,6 +17,11 @@ public class OculusVRInteractions : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        CheckTouchInteraction();
+    }
+
     private void CheckTouchInteraction()
     {
         if(OVRInput.Get(OVRInput.Button.PrimaryHandTrigger) || OVRInput.Get(OVRInput.Button.SecondaryHandTrigger))
@@ -68,7 +73,7 @@ public class OculusVRInteractions : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Paper"))
+        if(other.tag == "Paper")
         {
             paper = other.gameObject;
             isTouching = true;
