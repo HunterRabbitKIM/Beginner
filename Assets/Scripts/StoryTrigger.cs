@@ -19,15 +19,22 @@ public class StoryTrigger : MonoBehaviour
         
     }
 
+    private void Update()
+    {
+        CheckStory();
+    }
+
     private void CheckStory()
     {
+        Debug.Log("test1");
         if(isTrigger == true)
         {
-            if(storyTrigger != null)
+            Debug.Log("test2");
+            if (storyTrigger != null)
             {
+                Debug.Log(storyTrigger.name);
                 if (storyTrigger.name == "StoryTrigger1")
                 {
-                    Debug.Log(storyTrigger.name);
                     storyUi[0].SetActive(true);
                 }
                 else if (storyTrigger.name == "StoryTrigger2")
@@ -90,21 +97,11 @@ public class StoryTrigger : MonoBehaviour
     }
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.tag);
 
         if(other.tag == "Story")
         {
-            
             storyTrigger = other.gameObject;
             isTrigger = true;
-        }
-    }
-
-    public void OnTriggerExit(Collider other)
-    {
-        if (other.tag == null)
-        {
-            isTrigger = false;
         }
     }
 
