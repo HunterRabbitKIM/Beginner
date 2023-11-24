@@ -2237,8 +2237,9 @@ MonoBehaviour:
   EnableLinearMovement: 1
   EnableRotation: 1
   RotationEitherThumbstick: 0
-  MoveScale: 3
+  MoveScale: 1
   isRun: 0
+  runScale: 3
   floorRunSounds:
   - {fileID: 8300000, guid: c9f7c01ee140baf4ba4940876ff27b73, type: 3}
   - {fileID: 8300000, guid: 73f549226bccd3c4f8ac39f47f5f1565, type: 3}
@@ -2899,7 +2900,7 @@ Transform:
   m_GameObject: {fileID: 129057546}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 107.87, y: 6.05, z: 54.34}
+  m_LocalPosition: {x: 103.78, y: 3.33, z: 83.62}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11630,15 +11631,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 780761152700154019, guid: 6924745a509f7b746bc74f3d4548b1aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 104.86
+      value: 83.67
       objectReference: {fileID: 0}
     - target: {fileID: 780761152700154019, guid: 6924745a509f7b746bc74f3d4548b1aa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.22
+      value: 1.85
       objectReference: {fileID: 0}
     - target: {fileID: 780761152700154019, guid: 6924745a509f7b746bc74f3d4548b1aa, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 36.5
+      value: 4.62
       objectReference: {fileID: 0}
     - target: {fileID: 780761152700154019, guid: 6924745a509f7b746bc74f3d4548b1aa, type: 3}
       propertyPath: m_LocalRotation.w

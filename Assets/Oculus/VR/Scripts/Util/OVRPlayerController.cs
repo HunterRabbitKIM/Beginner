@@ -175,6 +175,7 @@ public class OVRPlayerController : MonoBehaviour
 
     // Run Trigger
     public bool isRun;
+    public int runScale;
 
     // Sound
     private AudioSource audioSource;
@@ -471,7 +472,7 @@ public class OVRPlayerController : MonoBehaviour
             // Run!
             if (dpad_move || Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift) || OVRInput.Get(OVRInput.Button.PrimaryHandTrigger))
             {
-                MoveScale *= 10.0f;
+                MoveScale *= runScale;
                 Debug.Log(moveInfluence);
                 isRun = true;
             }
