@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class CAnimationHandler : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class CAnimationHandler : MonoBehaviour
 
     #region Members
     private Animator m_Animator;
+    public VideoPlayer video;
 
     #endregion Members
 
@@ -33,7 +35,14 @@ public class CAnimationHandler : MonoBehaviour
     IEnumerator LoadTitleSceneAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-
+        if (video != null)
+        {
+            video.Play();
+        }
+        else
+        {
+            Debug.LogError("인스펙터에서 VideoPlayer가 할당되지 않았습니다!");
+        }
         SceneManager.LoadScene("Title");
     }
 
