@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameOverController : MonoBehaviour
 {
@@ -12,22 +13,10 @@ public class GameOverController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.gameObject.CompareTag("Enemy") && !isGameOver)
+        if (collision.collider.gameObject.CompareTag("Enemy"))
         {
-            isGameOver = true;
-            GameOver();
+            SceneManager.LoadScene("GameOver");
         }
-    }
-
-    public void GameOver()
-    {
-        Debug.Log("게임 오버 함수 호출!");
-        GameOverScreen.Setup();
-        //BGMList.PauseBGM();
-        player.GetComponent<SoundManager>().PlayBGM("GameOver"); // BGM 재생 로직을 실행합니다.
-        Time.timeScale = 0;
-
-        
     }
  
     void Start()

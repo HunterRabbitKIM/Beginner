@@ -192,6 +192,8 @@ public class OVRPlayerController : MonoBehaviour
 
     void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
+
         Controller = gameObject.GetComponent<CharacterController>();
 
         if (Controller == null)
