@@ -27,22 +27,19 @@ public class CAnimationHandler : MonoBehaviour
         
         m_Animator.Play("Ending");
     }
+    public void VideoPlay()
+    {
+        video.Play();
+    }
     public void OnEnterNextSceneWithDelay()
     {
-        StartCoroutine(LoadTitleSceneAfterDelay(10f));
+        StartCoroutine(LoadTitleSceneAfterDelay(20f));
     }
 
     IEnumerator LoadTitleSceneAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        if (video != null)
-        {
-            video.Play();
-        }
-        else
-        {
-            Debug.LogError("인스펙터에서 VideoPlayer가 할당되지 않았습니다!");
-        }
+       
         SceneManager.LoadScene("Title");
     }
 

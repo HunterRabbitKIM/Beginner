@@ -225,7 +225,14 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 65.066666
+  - time: 62.816666
+    functionName: VideoPlay
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 65.13333
     functionName: OnEnterNextSceneWithDelay
     data: 
     objectReferenceParameter: {fileID: 0}
