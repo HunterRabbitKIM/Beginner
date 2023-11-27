@@ -5,10 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class EndingCredit : MonoBehaviour
 {
-    public EndingScreen EndingScreen;
-    public SoundManager SoundManager;
-    public CharacterController playerController; 
-
 
     void Start()
     {
@@ -24,22 +20,8 @@ public class EndingCredit : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            EndingFunction();
+            SceneManager.LoadScene("GameClear");
         }
-    }
-
-    public void EndingFunction()
-    {
-        if (playerController != null && playerController.enabled)
-        {
-            playerController.enabled = false;
-        }
-
-        EndingScreen.Setup();
-        
-        SoundManager.PlayBGM("Ending");
-
-
     }
   
 }

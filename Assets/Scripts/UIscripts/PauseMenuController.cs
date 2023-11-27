@@ -28,7 +28,7 @@ public class PauseMenuController : MonoBehaviour
     }
     private void PauseButton()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || OVRInput.Get(OVRInput.Button.Three))
         {
             Pause();
         }

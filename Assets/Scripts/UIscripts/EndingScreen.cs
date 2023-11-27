@@ -6,11 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class EndingScreen : MonoBehaviour
 {
-
-    public void Setup()
-    {
-        gameObject.SetActive(true);
-    }
+    public SoundManager soundManager;
  
     // Start is called before the first frame update
     void Start()
@@ -21,6 +17,7 @@ public class EndingScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        soundManager.PlayBGM("Ending");
     }
+
 }

@@ -6,18 +6,28 @@ using UnityEngine.SceneManagement;
 
 public class GameOverScreen : MonoBehaviour
 {
+    public SoundManager soundManager;
+    private GameObject gameOver;
+
+    private void Update()
+    {
+        gameOver.GetComponent<SoundManager>().PlayBGM("GameOver");
+        Time.timeScale = 0;
+    }
+
+
     public void Setup()
     {
         gameObject.SetActive(true);
     }
     public void RestartButton()
     {
-        SceneManager.LoadScene("Stage2");
+        LoadingSceneController.LoadScene("Stage2");
         Time.timeScale = 1;
     }
     public void ExitButton()
     {
-        SceneManager.LoadScene("Title");
+        LoadingSceneController.LoadScene("Title");
         Time.timeScale = 1;
     }
     
