@@ -174,7 +174,7 @@ public class OVRPlayerController : MonoBehaviour
     private bool playerControllerEnabled = false;
 
     // Run Trigger
-    public bool isRun =false;
+    public bool isRun = false;
     public int runScale;
 
     // Sound
@@ -268,7 +268,7 @@ public class OVRPlayerController : MonoBehaviour
     //Sound
     void UpdateRunSound()
     {
-        if (isRun)
+        if (isRun==true)
         {
             if (!isPlayingRunSound)
             {
