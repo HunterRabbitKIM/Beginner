@@ -211,6 +211,8 @@ public class OVRPlayerController : MonoBehaviour
             CameraRig = CameraRigs[0];
 
         InitialYRotation = transform.rotation.eulerAngles.y;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     void OnEnable()

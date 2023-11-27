@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class CAnimationHandler : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class CAnimationHandler : MonoBehaviour
 
     #region Members
     private Animator m_Animator;
+    public VideoPlayer video;
 
     #endregion Members
 
@@ -25,15 +27,19 @@ public class CAnimationHandler : MonoBehaviour
         
         m_Animator.Play("Ending");
     }
+    public void VideoPlay()
+    {
+        video.Play();
+    }
     public void OnEnterNextSceneWithDelay()
     {
-        StartCoroutine(LoadTitleSceneAfterDelay(10f));
+        StartCoroutine(LoadTitleSceneAfterDelay(20f));
     }
 
     IEnumerator LoadTitleSceneAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-
+       
         SceneManager.LoadScene("Title");
     }
 
