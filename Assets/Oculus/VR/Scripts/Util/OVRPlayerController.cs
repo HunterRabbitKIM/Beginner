@@ -174,7 +174,7 @@ public class OVRPlayerController : MonoBehaviour
     private bool playerControllerEnabled = false;
 
     // Run Trigger
-    public bool isRun;
+    public bool isRun =false;
     public int runScale;
 
     // Sound
@@ -209,6 +209,8 @@ public class OVRPlayerController : MonoBehaviour
             CameraRig = CameraRigs[0];
 
         InitialYRotation = transform.rotation.eulerAngles.y;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     void OnEnable()
