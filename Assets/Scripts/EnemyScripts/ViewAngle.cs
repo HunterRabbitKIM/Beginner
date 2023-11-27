@@ -17,6 +17,7 @@ public class ViewAngle : MonoBehaviour
     void Start()
     {
         theOVRPlayerController = FindObjectOfType<OVRPlayerController>();
+        //thePlayer = FindObjectOfType<Player>();
         monster = GetComponentInParent<Monster>();
         nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
         StartCoroutine("Viewing");
@@ -35,6 +36,7 @@ public class ViewAngle : MonoBehaviour
     public Vector3 GetTargetPos()
     {
         return theOVRPlayerController.transform.position;
+        //return thePlayer.transform.position;
     }
 
     private Vector3 BoundaryAngle(float angle)
