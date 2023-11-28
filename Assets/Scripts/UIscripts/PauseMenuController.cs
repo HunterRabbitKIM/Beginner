@@ -8,6 +8,8 @@ public class PauseMenuController : MonoBehaviour
     public SoundManager SoundManager;
     public PauseScreen PauseScreen;
     public SoundOptionScreen SoundOptionScreen;
+    
+
 
     private enum ActiveMenu
     {

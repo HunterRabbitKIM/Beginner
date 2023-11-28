@@ -27425,6 +27425,17 @@ Transform:
   - {fileID: 562680937}
   m_Father: {fileID: 1366428981}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1836168933 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 11400020, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
+  m_PrefabInstance: {fileID: 1927252772}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df9f338034892c44ebb62d97894772f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1836182593
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29632,6 +29643,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.47
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
+      propertyPath: _trackingOriginType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 11400010, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
       propertyPath: Acceleration
       value: 0.2
@@ -29731,6 +29746,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100008, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2021823611}
+    - targetCorrespondingSourceObject: {fileID: 100008, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2021823622}
   m_SourcePrefab: {fileID: 100100000, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
 --- !u!4 &1927252773 stripped
 Transform:
@@ -30712,6 +30730,25 @@ MonoBehaviour:
   paper: {fileID: 919132148155722826}
   arraySize: 7
   isTouching: 0
+--- !u!114 &2021823622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021823598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf162022e230bb745ab2ec48cd357f9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CameraRig: {fileID: 1836168933}
+  CollideLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  HeightOffset: 0
+  MinimumHeight: 0
+  MaximumHeight: 0
 --- !u!1001 &2028499127
 PrefabInstance:
   m_ObjectHideFlags: 0
