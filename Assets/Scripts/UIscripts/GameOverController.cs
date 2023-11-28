@@ -6,10 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameOverController : MonoBehaviour
 {
-    public GameOverScreen GameOverScreen;
-    public SoundManager SoundManager;
     private GameObject player;
-    private bool isGameOver = false;
 
     private void OnCollisionEnter(Collision collision)
     {
