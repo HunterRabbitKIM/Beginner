@@ -32,7 +32,7 @@ public class PauseScreen : MonoBehaviour
     }
     public void MenuButton()
     {
-        SceneManager.LoadScene("Title");
+        LoadingSceneController.LoadScene("Title");
         Time.timeScale = 1;
     }
     public void SoundOptionButton()
