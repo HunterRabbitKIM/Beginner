@@ -36,6 +36,6 @@ public class PWCheck : MonoBehaviour
             potal.GetComponent<AudioSource>().Play();
             Destroy(gameObject);
         }
-        Debug.Log("["+userpw[0]+"," +userpw[1]+","+userpw[2]+","+userpw[3]+"]");
+        //Debug.Log("["+userpw[0]+"," +userpw[1]+","+userpw[2]+","+userpw[3]+"]");
     }
 }
