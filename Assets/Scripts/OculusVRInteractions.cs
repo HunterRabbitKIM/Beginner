@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class OculusVRInteractions : MonoBehaviour
 {
-    public GameObject[] uiObject; // 활성화 할 UI 오브젝트
-    public GameObject paper;
+    [SerializeField]private GameObject[] uiObject; // 활성화 할 UI 오브젝트
+    [SerializeField]private GameObject paper;
 
-    public int arraySize;
+    [SerializeField]private int arraySize;
 
-    public bool isTouching = false; // 터치 중인지 여부
+    [SerializeField]private bool isTouching = false; // 터치 중인지 여부
 
     // Update is called once per frame
     void Start()
@@ -66,6 +66,7 @@ public class OculusVRInteractions : MonoBehaviour
             for(int i = 0; i < arraySize; i++)
             {
                 uiObject[i].SetActive(false);
+                
             }
             
         }
@@ -76,6 +77,7 @@ public class OculusVRInteractions : MonoBehaviour
         if(other.tag == "Paper")
         {
             paper = other.gameObject;
+            Debug.Log(paper.name);
             isTouching = true;
         }
     }

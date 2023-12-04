@@ -477,7 +477,6 @@ public class OVRPlayerController : MonoBehaviour
             if (dpad_move || Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift) || OVRInput.Get(OVRInput.Button.PrimaryHandTrigger))
             {
                 MoveScale *= runScale;
-                Debug.Log(moveInfluence);
                 isRun = true;
             }
             else

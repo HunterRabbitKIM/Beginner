@@ -26,16 +26,13 @@ public class StoryTrigger : MonoBehaviour
 
     private void CheckStory()
     {
-        Debug.Log("test1");
         if(isTrigger == true)
         {
-            Debug.Log("test2");
             if (storyTrigger != null)
             {
                 Debug.Log(storyTrigger.name);
                 if (storyTrigger.name == "Story_Trigger1")
                 {
-                    Debug.Log("test3");
                     storyUi[0].SetActive(true);
                 }
                 else if (storyTrigger.name == "Story_Trigger2")
